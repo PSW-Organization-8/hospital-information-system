@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tara-pogancev/psw-hostpital-system/compare/v1.0.0...v1.0.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* Minor Readme change ([b4d9971](https://github.com/tara-pogancev/psw-hostpital-system/commit/b4d9971795f3536d1e6237370804d3e166d22f98))
+
 # 1.0.0 (2021-10-27)
 
 
