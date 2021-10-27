@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/tara-pogancev/psw-hostpital-system/compare/v1.0.1...v1.0.2) (2021-10-27)
+
+
+### Bug Fixes
+
+* Gitignore and repository alteration ([4a238b9](https://github.com/tara-pogancev/psw-hostpital-system/commit/4a238b9a1161b90fb8e393dd28bcf990dc535a0e))
+* Release action fix ([10a13a6](https://github.com/tara-pogancev/psw-hostpital-system/commit/10a13a6463cdce4816472c14751c7af4ed9e28d7))
+
 ## [1.0.1](https://github.com/tara-pogancev/psw-hostpital-system/compare/v1.0.0...v1.0.1) (2021-10-27)
 
 
