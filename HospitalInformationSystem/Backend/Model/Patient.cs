@@ -1,0 +1,203 @@
+// File:    Pacijent.cs
+// Author:  paracelsus
+// Created: Monday, March 22, 2021 6:35:53 PM
+// Purpose: Definition of Class Pacijent
+
+using SIMS.Model;
+using System;
+using System.Collections.Generic;
+using SIMS.Repositories.AllergenRepo;
+using SIMS.Repositories.DoctorRepo;
+
+namespace SIMS.Model
+{
+    public class Patient : LoggedUser
+    {
+        public SexType PatientGender { get; set; }
+        public BloodType BloodType { get; set; }
+        public bool IsBanned { get; set; }
+        public string Lbo { get; set; }
+        public bool Guest { get; set; }
+        public List<Component> Allergens { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public List<string> HronicalDiseases { get; set; }
+        public Doctor ChosenDoctor {get;set;}
+
+
+        public Patient(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address, String lbo, Boolean guest, List<Component> allergens) : base(name, lastName, jmbg, username, password, email, phone, address)
+        {
+            Lbo = lbo;
+            Guest = guest;
+            Allergens = allergens;
+            IsBanned = false;
+            
+
+            foreach (var allergen in allergens)
+            {
+                allergen.Name = ComponentFileRepository.Instance.FindById(allergen.ID).Name;
+            }
+            ChosenDoctor = new DoctorFileRepository().GetAll()[0];
+        }
+
+        public Patient(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address, String lbo, Boolean guest, List<Component> allergens, DateTime dateOfBirth, BloodType bloodType, SexType gender, List<string> hronicalDiseases) : base(name, lastName, jmbg, username, password, email, phone, address)
+        {
+            Lbo = lbo;
+            Guest = guest;
+            Allergens = allergens;
+            DateOfBirth = dateOfBirth;
+            BloodType = bloodType;
+            PatientGender = gender;
+            HronicalDiseases = hronicalDiseases;
+            IsBanned = false;
+           
+
+            foreach (var allergen in Allergens)
+            {
+                allergen.Name = ComponentFileRepository.Instance.FindById(allergen.ID).Name;
+            }
+            ChosenDoctor = new DoctorFileRepository().GetAll()[0];
+        }
+
+        public Patient(Patient patient)
+        {
+            Name = patient.Name;
+            LastName = patient.LastName;
+            Jmbg = patient.Jmbg;
+            Username = patient.Username;
+            Password = patient.Password;
+            Email = patient.Email;
+            Phone = patient.Phone;
+            Address = patient.Address;
+            
+            Lbo = patient.Lbo;
+            Guest = patient.Guest;
+            Allergens = patient.Allergens;
+            DateOfBirth = patient.DateOfBirth;
+            BloodType = patient.BloodType;
+            PatientGender = patient.PatientGender;
+            HronicalDiseases = patient.HronicalDiseases;
+            IsBanned = patient.IsBanned;
+        }
+
+        public Patient() : base()
+        {
+            IsBanned = false;
+            
+            ChosenDoctor = new DoctorFileRepository().GetAll()[0];
+        }
+
+        public Patient(string name, string lastName, string jmbg) : base(name, lastName, jmbg, "", "", "", "", new Address("", "", new City("", 0, new Country(""))))
+        {
+            Lbo = "";
+            Guest = true;
+            Allergens = new List<Component>();
+            DateOfBirth = DateTime.MinValue;
+            BloodType = BloodType.Op;
+            PatientGender = SexType.Male;
+            HronicalDiseases = new List<string>();
+            ChosenDoctor = new DoctorFileRepository().GetAll()[0];
+        }
+
+        public String GetIfGuestString()
+        {
+                if (Guest)
+                    return "Da";
+                else
+                    return "Ne";
+        }
+
+        public void SetAttributes(Patient p)
+        {
+            Name = p.Name;
+            LastName = p.LastName;
+            Jmbg = p.Jmbg;
+            Username = p.Username;
+            Password = p.Password;
+            Email = p.Email;
+            Phone = p.Phone;
+            Address = p.Address;
+            Lbo = p.Lbo;
+            Guest = p.Guest;
+        }
+
+        public string GetAllergenListString()
+        {
+                string allergensString = "";
+                if (Allergens.Count == 0)
+                    return "Nema";
+
+                ComponentFileRepository allergens = new ComponentFileRepository();
+
+                foreach (Component a in Allergens)
+                    allergensString += a.Name + ", ";
+                return allergensString.Remove(allergensString.Length - 2); 
+        }
+
+        public bool Unavailable(Appointment appointment)
+        {
+            return appointment.Patient.Jmbg == this.Jmbg;
+        }
+
+        public String GetDateOfBirthString() 
+        { 
+            return DateOfBirth.ToString("dd.MM.yyyy."); 
+        }
+
+        public String GetGenderString()
+        {
+                if (PatientGender == SexType.Male)
+                    return "Muško";
+                else
+                    return "Žensko";
+        }
+
+        public String GetBloodTypeString()
+        {
+                if (BloodType == BloodType.ABn)
+                    return "AB-";
+                else if (BloodType == BloodType.ABp)
+                    return "AB+";
+                else if (BloodType == BloodType.Ap)
+                    return "A+";
+                else if (BloodType == BloodType.An)
+                    return "A-";
+                else if (BloodType == BloodType.Bp)
+                    return "B+";
+                else if (BloodType == BloodType.Bn)
+                    return "B-";
+                else if (BloodType == BloodType.Op)
+                    return "O+";
+                else if (BloodType == BloodType.On)
+                    return "O-";
+
+                return null;
+        }
+
+        public bool IsAlergic(Medication medicine)
+        {
+            foreach (Component a in Allergens)
+            {
+                //if (lek.Components.Contains(a))
+                foreach (Component component in medicine.Components)
+                    if (component.ID == a.ID)
+                        return true;
+            }
+            return false;
+        }
+
+        public string GetHronicalDiseases()
+        {
+                string hronBolestiString = "";
+                if (HronicalDiseases.Count == 0 || HronicalDiseases.Contains(""))
+                    return "Nema";
+
+                foreach (string a in HronicalDiseases)
+                    hronBolestiString += a + ", ";
+                return hronBolestiString.Remove(hronBolestiString.Length - 2);
+        }
+
+       
+        
+                
+    }
+}
