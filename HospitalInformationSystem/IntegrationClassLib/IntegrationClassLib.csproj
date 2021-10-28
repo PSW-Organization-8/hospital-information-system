@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Parthership\Model\" />
+    <Folder Include="Parthership\Service\" />
+    <Folder Include="Parthership\Repository\" />
+    <Folder Include="Pharmacy\Model\" />
+    <Folder Include="Pharmacy\Service\" />
+    <Folder Include="Pharmacy\Repository\" />
+    <Folder Include="SharedModel\" />
+    <Folder Include="Tendering\Model\" />
+    <Folder Include="Tendering\Service\" />
+    <Folder Include="Tendering\Repository\" />
+  </ItemGroup>
+
+</Project>
