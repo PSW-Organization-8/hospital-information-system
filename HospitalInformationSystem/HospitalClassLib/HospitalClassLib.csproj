@@ -8,16 +8,14 @@
     <Folder Include="GraphicalEditor\Model\" />
     <Folder Include="GraphicalEditor\Service\" />
     <Folder Include="GraphicalEditor\Repository\" />
-    <Folder Include="MedicalRecords\Model\" />
     <Folder Include="MedicalRecords\Service\" />
-    <Folder Include="MedicalRecords\Repository\" />
-    <Folder Include="RoomsAndEquipment\Model\" />
     <Folder Include="RoomsAndEquipment\Service\" />
-    <Folder Include="RoomsAndEquipment\Repository\" />
-    <Folder Include="Schedule\Model\" />
     <Folder Include="Schedule\Service\" />
     <Folder Include="Schedule\Repository\" />
-    <Folder Include="SharedModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
