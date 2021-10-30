@@ -8,13 +8,14 @@
     <Folder Include="Parthership\Model\" />
     <Folder Include="Parthership\Service\" />
     <Folder Include="Parthership\Repository\" />
-    <Folder Include="Pharmacy\Model\" />
     <Folder Include="Pharmacy\Service\" />
-    <Folder Include="Pharmacy\Repository\" />
-    <Folder Include="SharedModel\" />
     <Folder Include="Tendering\Model\" />
     <Folder Include="Tendering\Service\" />
     <Folder Include="Tendering\Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
