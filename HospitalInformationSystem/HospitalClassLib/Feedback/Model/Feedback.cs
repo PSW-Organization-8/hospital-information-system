@@ -15,6 +15,7 @@ namespace HospitalClassLib.Feedback.Model
         public Patient Patient { get; set; }
 
 
+        public Feedback(string c) { Id = "1"; Content = c; }
         public Feedback() { Id = "1"; }
     }
 

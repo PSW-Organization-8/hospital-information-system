@@ -9,6 +9,7 @@ import { RandomNumberGeneratorService } from '../feedback.service';
 })
 export class FeedbackComponent implements OnInit {
   feedback: any;
+  content: string = "";
   constructor(private _feedbackService:RandomNumberGeneratorService) { }
 
   ngOnInit(): void {
@@ -16,7 +17,11 @@ export class FeedbackComponent implements OnInit {
   }
 
   getFeedback(): void{
-    this._feedbackService.generate().subscribe(f => this.feedback = f);
+    this._feedbackService.getFeedbackFromServer().subscribe(f => this.feedback = f);
   }
 
+  sendFeedback(): void{
+    this._feedbackService.sendFeedbackToServer(this.content);
+  }
+  
 }

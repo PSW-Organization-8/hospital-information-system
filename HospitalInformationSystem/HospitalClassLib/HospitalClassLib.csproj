@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Feedback\Repository\" />
     <Folder Include="GraphicalEditor\Model\" />
     <Folder Include="GraphicalEditor\Service\" />
     <Folder Include="GraphicalEditor\Repository\" />

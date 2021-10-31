@@ -5,30 +5,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HospitalClassLib.Feedback.Service;
 
 namespace HospitalAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class FeedbackController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
-        {
+       {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<FeedbackController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public FeedbackController(ILogger<FeedbackController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet]
-        public Feedback Get()
-        {
-            Feedback f1 = new Feedback();
-            return f1;
+        [HttpPost]
+        public Feedback Add(string content)
+        {   
+            return FeedbackService.GetInstance().Add(content);
         }
     }
 }

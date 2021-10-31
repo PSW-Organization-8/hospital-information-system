@@ -1,1 +1,11 @@
 <h1>{{feedback}}</h1>
+
+<div name="feedbackForm">
+    <form action="addFeedback">
+
+        <label><b>Content</b></label>
+        <input name="content" type="text" [(ngModel)]="content" required>
+
+        <input (click)="sendFeedback()" type="submit" class="button" value="Send">
+    </form>
+</div>
