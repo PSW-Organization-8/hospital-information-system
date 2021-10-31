@@ -5,13 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Backend" Version="1.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Dto\" />
     <Folder Include="Mapper\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalClassLib\HospitalClassLib.csproj" />
   </ItemGroup>
 
 </Project>
