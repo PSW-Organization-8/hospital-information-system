@@ -4,32 +4,27 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HospitalClassLib.Feedback.Model;
+using HospitalClassLib.Feedbacks.Model;
 
-namespace HospitalClassLib.Feedback.Service
+namespace HospitalClassLib.Feedbacks.Service
 {
     public class FeedbackService
     {
+        ObservableCollection<Feedback> feedbacks = new ObservableCollection<Feedback>();
         private static FeedbackService instance = null;
-
         public static FeedbackService GetInstance()
         {
             if (instance == null)
             {
                 instance = new FeedbackService();
-
             }
             return instance;
         }
-
-
-        ObservableCollection<Model.Feedback> feedbacks = new ObservableCollection<Model.Feedback>();
-
-        public Model.Feedback Add(string content)
+        public Feedback Add(Feedback feedback)
         {
-            Model.Feedback f = new Model.Feedback(content);
-            feedbacks.Add(f);
-            return f;
+            feedback.Id = (feedbacks.Count + 1).ToString();
+            feedbacks.Add(feedback);
+            return feedback;
         }
     }
 }

@@ -8,7 +8,7 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 })
 export class RandomNumberGeneratorService {
 
-    private _url = "http://localhost:16934/"
+  private _url = "http://localhost:16934/api/"
   constructor(private http: HttpClient) { }
 
   public getFeedbackFromServer(): Observable<any> {
@@ -16,6 +16,11 @@ export class RandomNumberGeneratorService {
   }
 
   public sendFeedbackToServer(content: string): void {
-    this.http.post(this._url + 'feedback', content);
+    let feedback = {
+      "Content" : content,
+      "IsApproved" : false,
+      "PatientId" : "1"
+    }
+    this.http.post<any>(this._url + 'feedback', feedback).subscribe();
   }
 }
