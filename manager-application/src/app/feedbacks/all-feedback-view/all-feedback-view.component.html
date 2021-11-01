@@ -1,1 +1,14 @@
-<p>all-feedback-view works!</p>
+<div>
+    <thead>
+        <th>Id Pacijenta</th>
+        <th>Tekst</th>
+        <th>Datum</th>
+    </thead>
+    <tbody *ngFor='let feedback of feedbacks'>
+        <tr>
+            <td>{{feedback.patientId}}</td>
+            <td>{{feedback.content}}</td>
+            <td>{{feedback.date}}</td>
+        </tr>
+    </tbody>
+</div>

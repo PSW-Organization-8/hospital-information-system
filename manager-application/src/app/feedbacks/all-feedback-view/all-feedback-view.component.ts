@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AllFeedbackViewService } from './all-feedback-view.service';
 
@@ -14,7 +14,7 @@ export class AllFeedbackViewComponent implements OnInit {
   constructor(private _allFeedbackViewService: AllFeedbackViewService) { }
 
   ngOnInit(): void {
-    
+    this.getAllFeedbacks();
   }
 
   getAllFeedbacks(): void{
