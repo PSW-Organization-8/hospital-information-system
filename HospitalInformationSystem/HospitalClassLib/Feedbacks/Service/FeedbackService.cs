@@ -26,5 +26,9 @@ namespace HospitalClassLib.Feedbacks.Service
             feedbacks.Add(feedback);
             return feedback;
         }
+        public ObservableCollection<Feedback> GetAll()
+        {
+            return feedbacks;
+        }
     }
 }

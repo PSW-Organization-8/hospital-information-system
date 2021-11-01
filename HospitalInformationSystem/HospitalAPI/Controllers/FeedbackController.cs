@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using HospitalClassLib.Feedbacks.Service;
 using HospitalAPI.Dto;
 using HospitalAPI.Mapper;
+using System.Collections.ObjectModel;
 
 namespace HospitalAPI.Controllers
 {
@@ -25,9 +26,8 @@ namespace HospitalAPI.Controllers
             _logger = logger;
         }
         [HttpGet]
-        public Feedback Get()
+        public ObservableCollection<Feedback> GetAll()
         {
-            return new Feedback();
         }
         [HttpPost]
         public Feedback Add(FeedbackDto feedbackDto)
