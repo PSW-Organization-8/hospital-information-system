@@ -38,5 +38,16 @@ namespace HospitalClassLib.Feedbacks.Service
                     feedback.IsApproved = true;
             }
         }
+
+        public ObservableCollection<Feedback> GetApprovedFeedbacks()
+        {
+            ObservableCollection<Feedback> approvedFeedbacks = new ObservableCollection<Feedback>();
+            foreach (Feedback feedback in this.feedbacks)
+            {
+                if (feedback.IsApproved)
+                    approvedFeedbacks.Add(feedback);
+            }
+            return approvedFeedbacks;
+        }
     }
 }

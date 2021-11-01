@@ -40,5 +40,12 @@ namespace HospitalAPI.Controllers
         {
             FeedbackService.GetInstance().ApproveFeedback(id);
         }
+
+        [HttpGet]
+        [Route("approved")]
+        public ObservableCollection<Feedback> GetApprovedFeedbacks() 
+        {
+            return FeedbackService.GetInstance().GetApprovedFeedbacks();
+        }
     }
 }
