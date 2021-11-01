@@ -23,4 +23,8 @@ export class RandomNumberGeneratorService {
     }
     this.http.post<any>(this._url + 'feedback', feedback).subscribe();
   }
+
+  public getApprovedFeedbackFromServer(): Observable<any> {
+    return this.http.get<any>(this._url + 'feedback/approved');
+  }
 }

@@ -22,7 +22,5 @@ export class FeedbackComponent implements OnInit {
 
   sendFeedback(): void{
     this._feedbackService.sendFeedbackToServer(this.content);
-    
   }
-  
 }

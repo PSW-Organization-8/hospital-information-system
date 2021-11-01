@@ -13,11 +13,11 @@
   <!-- First Grid -->
   <div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
-      <div class="w3-container">
         <h1 class="w3-center">User feedback</h1>
-        <h3 class="w3-center"> "Very good hospital" </h3>
-        <h3 class="w3-right" style="text-align: center; background-color: #5688C7"> "Very good hospital" </h3>
-        <h3 class="w3-left" style="text-align: center"> "Very good hospital" </h3>
+         <div class="w3-container" *ngFor="let f of approvedFeedback">
+        
+        <h3 class="w3-center"> {{f.content}} </h3>
+        <h3 class="w3-right" style="text-align: center; background-color: #5688C7">{{f.id}} </h3>
         
       </div>
   
