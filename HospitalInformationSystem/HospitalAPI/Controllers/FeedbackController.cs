@@ -35,5 +35,10 @@ namespace HospitalAPI.Controllers
         {   
             return FeedbackService.GetInstance().Add(FeedbackMapper.FeedbackDtoToFeedback(feedbackDto));
         }
+        [HttpPut("{id}")]
+        public void ApproveFeedback(string id)
+        {
+            FeedbackService.GetInstance().ApproveFeedback(id);
+        }
     }
 }

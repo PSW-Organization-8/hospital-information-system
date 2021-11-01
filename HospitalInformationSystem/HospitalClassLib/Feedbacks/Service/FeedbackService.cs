@@ -30,5 +30,13 @@ namespace HospitalClassLib.Feedbacks.Service
         {
             return feedbacks;
         }
+        public void ApproveFeedback(string feedbackId)
+        {
+            foreach(Feedback feedback in this.feedbacks)
+            {
+                if (feedback.Id.Equals(feedbackId))
+                    feedback.IsApproved = true;
+            }
+        }
     }
 }

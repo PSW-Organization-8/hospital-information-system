@@ -1,14 +1,17 @@
 <div>
-    <thead>
-        <th>Id Pacijenta</th>
-        <th>Tekst</th>
-        <th>Datum</th>
-    </thead>
-    <tbody *ngFor='let feedback of feedbacks'>
-        <tr>
-            <td>{{feedback.patientId}}</td>
-            <td>{{feedback.content}}</td>
-            <td>{{feedback.date}}</td>
-        </tr>
-    </tbody>
+    <table border="1">
+        <thead>
+            <th>Id Pacijenta</th>
+            <th>Tekst</th>
+            <th>Datum</th>
+        </thead>
+        <tbody *ngFor='let feedback of feedbacks'>
+            <tr>
+                <td>{{feedback.patientId}}</td>
+                <td>{{feedback.content}}</td>
+                <td>{{feedback.date}}</td>
+                <td *ngIf='!feedback.isApproved'><button>Odobri</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
