@@ -28,6 +28,7 @@ namespace HospitalAPI.Controllers
         [HttpGet]
         public ObservableCollection<Feedback> GetAll()
         {
+            return FeedbackService.GetInstance().GetAll();
         }
         [HttpPost]
         public Feedback Add(FeedbackDto feedbackDto)
