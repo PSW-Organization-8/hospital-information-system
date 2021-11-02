@@ -8,6 +8,8 @@ import { DashboardComponent } from './editor/dashboard.component';
 import { AllFeedbackViewComponent } from './feedbacks/all-feedback-view/all-feedback-view.component';
 import { AllFeedbackViewService } from './feedbacks/all-feedback-view/all-feedback-view.service';
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
+import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
+
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
   { path: 'header', component: HeaderComponent }
 ];
+
+import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
 
 @NgModule({
   declarations: [
