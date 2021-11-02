@@ -8,6 +8,9 @@ import { DashboardComponent } from './editor/dashboard.component';
 import { AllFeedbackViewComponent } from './feedbacks/all-feedback-view/all-feedback-view.component';
 import { AllFeedbackViewService } from './feedbacks/all-feedback-view/all-feedback-view.service';
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
+import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
+import { CreateObjectionComponent } from './create-objection/create-objection.component';
+
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -21,8 +24,11 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'feedbackview', component: AllFeedbackViewComponent },
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
-  { path: 'header', component: HeaderComponent }
+  { path: 'header', component: HeaderComponent },
+  { path: 'allObjections', component: AllObjectionsViewComponent},
+  { path: 'createObjection', component: CreateObjectionComponent}
 ];
+
 
 @NgModule({
   declarations: [
@@ -32,6 +38,8 @@ const routes: Routes = [
     PharmacyRegistrationComponent,
     HeaderComponent,
     HomeComponent,
+    AllObjectionsViewComponent,
+    CreateObjectionComponent,
   ],
   imports: [
     BrowserModule,

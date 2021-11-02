@@ -20,6 +20,17 @@ namespace PharmacyClassLib.Service
             return regHospitalRepository.Get(hospitalName);
         }
 
+        public RegistratedHospital GetByApiKey(string apyKey)
+        {
+            List<RegistratedHospital> hospitals = regHospitalRepository.GetAll();
+            foreach (RegistratedHospital hospital in hospitals) {
+                if (hospital.ApiKey.Equals(apyKey)) {
+                    return hospital;
+                }
+            }
+            return null;
+        }
+
         public RegistratedHospital Register(RegistratedHospital newHospital)
         {
             newHospital.ApiKey = Guid.NewGuid().ToString();
