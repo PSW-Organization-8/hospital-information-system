@@ -16,10 +16,6 @@ namespace HospitalAPI.Controllers
     [Route("api/[controller]")]
     public class FeedbackController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
         private readonly ILogger<FeedbackController> _logger;
         public FeedbackController(ILogger<FeedbackController> logger)
         {
