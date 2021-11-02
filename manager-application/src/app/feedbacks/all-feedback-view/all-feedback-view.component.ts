@@ -21,4 +21,8 @@ export class AllFeedbackViewComponent implements OnInit {
     this._allFeedbackViewService.getFeedbackFromServer().subscribe(f => this.feedbacks = f);
   }
 
+  aprroveFeedback(feedbackId: string): void {
+    this._allFeedbackViewService.approveFeedback(feedbackId).subscribe();
+  }
+
 }

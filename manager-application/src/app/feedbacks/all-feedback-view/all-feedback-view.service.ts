@@ -13,4 +13,7 @@ export class AllFeedbackViewService {
   public getFeedbackFromServer(): Observable<any> {
     return this.http.get<any>(this._url + 'feedback');
   }
+  public approveFeedback(feedbackId: string) {
+    return this.http.put<string>(this._url + 'feedback/' + feedbackId, feedbackId);
+  }
 }
