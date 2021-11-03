@@ -8,7 +8,6 @@
     <Folder Include="Parthership\Model\" />
     <Folder Include="Parthership\Service\" />
     <Folder Include="Parthership\Repository\" />
-    <Folder Include="Pharmacy\Service\" />
     <Folder Include="Tendering\Model\" />
     <Folder Include="Tendering\Service\" />
     <Folder Include="Tendering\Repository\" />

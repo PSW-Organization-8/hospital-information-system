@@ -3,6 +3,7 @@ export class Pharmacy {
         public Name: string,
         public ApiKey: string,
         public Url: string,
-        public Port: number,
+        public Port: string,
+        public PortNum: number,
     ) { }
 }

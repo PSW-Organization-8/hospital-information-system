@@ -11,7 +11,7 @@ export class PharmacyRegistrationService {
   constructor(private http: HttpClient) { }
   
   public registerPharmacy(pharmacy: Pharmacy){
-    return this.http.post<Pharmacy>(this._url + 'pharmacy', pharmacy)
+    return this.http.post(this._url + 'Pharmacy', pharmacy).subscribe(error => console.log(error))
   };
 
 }

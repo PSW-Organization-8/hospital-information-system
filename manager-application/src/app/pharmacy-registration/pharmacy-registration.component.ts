@@ -16,15 +16,16 @@ export class PharmacyRegistrationComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
-  model = new Pharmacy("", "", "", 0)
+  model = new Pharmacy("", "", "", "", 0)
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
+    this.model.Port = this.model.PortNum.toString();
     this.pharmacyRegistrationService.registerPharmacy(this.model)
     this.toastr.success('Successfully registered a pharmacy')
-    this.model = new Pharmacy("", "", "", 0)
+    this.model = new Pharmacy("", "", "", "", 0)
   }
 
 }
