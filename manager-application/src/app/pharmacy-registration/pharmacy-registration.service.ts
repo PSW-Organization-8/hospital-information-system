@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { serverPort } from '../app.consts';
+import { integrationServerPort } from '../app.consts';
 import { Pharmacy } from './pharmacy';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PharmacyRegistrationService {
-  private _url = serverPort
+  private _url = integrationServerPort
   constructor(private http: HttpClient) { }
   
   public registerPharmacy(pharmacy: Pharmacy){

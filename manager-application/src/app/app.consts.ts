@@ -1,3 +1,4 @@
 // Constant application variables
 
-export const serverPort = 'http://localhost:16934/api/';
+export const hospitalServerPort = 'http://localhost:16934/api/';
+export const integrationServerPort = 'http://localhost:7313/api/';

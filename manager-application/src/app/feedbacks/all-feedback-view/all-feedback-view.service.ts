@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { serverPort } from '../../app.consts';
+import { hospitalServerPort } from '../../app.consts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllFeedbackViewService {
 
-  private _url = serverPort;
+  private _url = hospitalServerPort;
   constructor(private http: HttpClient) { }
 
   public getFeedbackFromServer(): Observable<any> {
