@@ -27,6 +27,9 @@ const routes: Routes = [
 ];
 
 import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
+import { CreateObjectionComponent } from './create-objection/create-objection.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { AllObjectionsViewComponent } from './all-objections-view/all-objections
     PharmacyRegistrationComponent,
     HeaderComponent,
     HomeComponent,
+    AllObjectionsViewComponent,
+    CreateObjectionComponent,
   ],
   imports: [
     BrowserModule,

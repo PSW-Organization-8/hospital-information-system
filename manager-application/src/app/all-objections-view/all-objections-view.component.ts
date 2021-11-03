@@ -9,6 +9,7 @@ import { AllObjectionsViewService } from './all-objections-view.service';
 export class AllObjectionsViewComponent implements OnInit {
 
   objections: any;
+  
 
   constructor(private service: AllObjectionsViewService) { }
 

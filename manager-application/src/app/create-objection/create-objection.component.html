@@ -1,0 +1,25 @@
+<div class="container">
+    <form>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Pharmacy Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text"  name="PharmacyName" placeholder="Pharmacy name.."  [(ngModel)]="pharmacyName" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Objection</label>
+      </div>
+      <div class="col-75">
+        <textarea name="objectionText" placeholder="Write something.." style="height:200px"  [(ngModel)]="text" required ></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input (click)="sendObjection()" type="submit" value="Send">
+    </div>
+    </form>
+  </div>
+
+
