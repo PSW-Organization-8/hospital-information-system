@@ -9,6 +9,7 @@ using HospitalClassLib.Feedbacks.Service;
 using HospitalAPI.Dto;
 using HospitalAPI.Mapper;
 using System.Collections.ObjectModel;
+using HospitalClassLib.Feedbacks.Repository;
 
 namespace HospitalAPI.Controllers
 {
@@ -16,11 +17,16 @@ namespace HospitalAPI.Controllers
     [Route("api/[controller]")]
     public class FeedbackController : ControllerBase
     {
-        private readonly ILogger<FeedbackController> _logger;
-        public FeedbackController(ILogger<FeedbackController> logger)
+        private readonly FeedbackService feedbackService;
+        private FeedbackRepository feedbackRepository;
+
+        public FeedbackController(FeedbackService feedbackService, FeedbackRepository feedbackRepository)
         {
-            _logger = logger;
+
+            this.feedbackService = feedbackService;
+            this.feedbackRepository = feedbackRepository;
         }
+        /*
         [HttpGet]
         public ObservableCollection<Feedback> GetAll()
         {
@@ -30,18 +36,44 @@ namespace HospitalAPI.Controllers
         public Feedback Add(FeedbackDto feedbackDto)
         {   
             return FeedbackService.GetInstance().Add(FeedbackMapper.FeedbackDtoToFeedback(feedbackDto));
-        }
+        }*/
+
         [HttpPut("{id}")]
         public void ApproveFeedback(string id)
         {
-            FeedbackService.GetInstance().ApproveFeedback(id);
+            //FeedbackService.GetInstance().ApproveFeedback(id);
         }
 
         [HttpGet]
         [Route("approved")]
-        public ObservableCollection<Feedback> GetApprovedFeedbacks() 
+        public List<Feedback> GetApprovedFeedbacks() 
         {
-            return FeedbackService.GetInstance().GetApprovedFeedbacks();
+            return feedbackRepository.GetApproved();
+        }
+
+
+        [HttpGet]
+        public List<Feedback> GetUsers()
+        {
+            return feedbackService.Get();
+        }
+
+        [HttpGet("{id?}")]
+        public Feedback GetUser(string id)
+        {
+            return feedbackService.Get(id);
+        }
+
+        [HttpPost]
+        public Feedback AddUser(Feedback user)
+        {
+            return feedbackService.Create(user);
+        }
+
+        [HttpDelete("{id?}")]
+        public bool DeleteUser(string id)
+        {
+            return feedbackService.Delete(id);
         }
     }
 }

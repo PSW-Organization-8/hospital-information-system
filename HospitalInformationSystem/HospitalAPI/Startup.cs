@@ -1,6 +1,10 @@
+using HospitalClassLib;
+using HospitalClassLib.Feedbacks.Repository;
+using HospitalClassLib.Feedbacks.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +31,11 @@ namespace HospitalAPI
         {
 
             services.AddControllers();
+            services.AddDbContext<MyDbContext>(options => options.UseNpgsql(x => x.MigrationsAssembly("HospitalAPI")));
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+            services.AddScoped<FeedbackService>();
+            services.AddScoped<FeedbackRepository>();
+
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
