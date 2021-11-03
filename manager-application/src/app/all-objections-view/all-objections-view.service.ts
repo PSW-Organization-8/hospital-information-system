@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { serverPort } from '../app.consts';
+import { integrationServerPort } from '../app.consts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllObjectionsViewService {
 
-  private _url = serverPort;
+  private _url = integrationServerPort;
   constructor(private http: HttpClient) { }
 
   public getAllObjectionsFromServer(): Observable<any>{

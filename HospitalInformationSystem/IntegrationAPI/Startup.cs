@@ -62,6 +62,7 @@ namespace IntegrationAPI
             }
 
             app.UseRouting();
+            app.UseCors("MyPolicy");
 
             app.UseCors("MyPolicy");
 

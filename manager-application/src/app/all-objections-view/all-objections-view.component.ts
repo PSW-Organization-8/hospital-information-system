@@ -18,7 +18,8 @@ export class AllObjectionsViewComponent implements OnInit {
   }
 
   getAllObjections(): void{
-    this.service.getAllObjectionsFromServer().subscribe(objection => this.objections = objection);
+    this.service.getAllObjectionsFromServer().subscribe(objection =>{ this.objections = objection;
+    console.log(objection)});
   }
 
 }
