@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Feedbacks\Model\" />
-    <Folder Include="Feedbacks\Service\" />
+    <Compile Remove="Feedbacks\**" />
+    <EmbeddedResource Remove="Feedbacks\**" />
+    <None Remove="Feedbacks\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="GraphicalEditor\Model\" />
     <Folder Include="GraphicalEditor\Service\" />
     <Folder Include="GraphicalEditor\Repository\" />

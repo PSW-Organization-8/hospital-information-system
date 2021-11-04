@@ -9,17 +9,18 @@ namespace HospitalAPI.Dto
     {
 
         public string Content { get; set; }
-
         public bool IsApproved { get; set; }
-
         public string PatientId { get; set; }
-
+        public bool IsPublishable { get; set; }
+        public bool IsAnonymous { get; set; }
         public FeedbackDto() { }
 
-        public FeedbackDto(string content, bool isApproved, string patientId) {
+        public FeedbackDto(string content, bool isApproved, string patientId, bool isPublishable, bool isAnonymous) {
             this.Content = content;
             this.IsApproved = isApproved;
             this.PatientId = patientId;
+            this.IsPublishable = isPublishable;
+            this.IsAnonymous = isAnonymous;
         }
     }
 }

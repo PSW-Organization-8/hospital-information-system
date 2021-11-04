@@ -10,7 +10,7 @@
                 <td>{{feedback.patientId}}</td>
                 <td>{{feedback.content}}</td>
                 <td>{{feedback.date}}</td>
-                <td *ngIf='!feedback.isApproved'>
+                <td *ngIf='!feedback.isApproved && feedback.isPublishable'>
                     <button (click)="aprroveFeedback(feedback.id)">Odobri</button>
                 </td>
             </tr>
