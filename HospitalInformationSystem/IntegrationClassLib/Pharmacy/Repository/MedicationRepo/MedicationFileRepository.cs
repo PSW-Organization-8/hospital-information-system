@@ -67,5 +67,30 @@ namespace IntegrationClassLib.Pharmacy.Repository.MedicationRepo
         {
             //ne treba logika za serijalizaciju
         }
+
+        public Medication Get(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Medication IGenericRepository<Medication, string>.Update(Medication t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medication Create(Medication t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ExistsById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IGenericRepository<Medication, string>.Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

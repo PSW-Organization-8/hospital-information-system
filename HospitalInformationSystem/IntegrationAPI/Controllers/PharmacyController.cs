@@ -12,12 +12,11 @@ namespace IntegrationAPI.Controllers
     [ApiController]
     public class PharmacyController : ControllerBase
     {
-        private readonly ILogger<PharmacyController> _logger;
-        private PharmacyService pharmacyService = PharmacyService.GetInstance();
+        private readonly PharmacyService pharmacyService;
 
-        public PharmacyController(ILogger<PharmacyController> logger)
+        public PharmacyController(PharmacyService pharmacyService)
         {
-            _logger = logger;
+            this.pharmacyService = pharmacyService;
         }
 
         [HttpGet]

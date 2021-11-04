@@ -32,5 +32,30 @@ namespace IntegrationClassLib.Pharmacy.Repository.ReceiptRepo
             
             
         }
+
+        public Receipt Get(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Receipt IGenericRepository<Receipt, string>.Update(Receipt t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Receipt Create(Receipt t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ExistsById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IGenericRepository<Receipt, string>.Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,31 +1,26 @@
-﻿using System;
+﻿using IntegrationClassLib.Pharmacy.Repository.PharmacyRepo;
+using System;
 using System.Collections.Generic;
 
 namespace IntegrationClassLib.Pharmacy.Service
 {
     public class PharmacyService
     {
-        List<Model.Pharmacy> pharmacies = new List<Model.Pharmacy>();
+        private readonly IPharmacyRepository pharmacyRepository;
 
-        private static PharmacyService instance = null;
-        public static PharmacyService GetInstance()
+        public PharmacyService(IPharmacyRepository pharmacyRepository)
         {
-            if (instance == null)
-            {
-                instance = new PharmacyService();
-            }
-            return instance;
+            this.pharmacyRepository = pharmacyRepository;
         }
 
         public Model.Pharmacy Add(Model.Pharmacy pharmacy)
         {
-            pharmacies.Add(pharmacy);
-            return pharmacy;
+            return pharmacyRepository.Create(pharmacy);
         }
 
         public List<Model.Pharmacy> GetAll()
         {
-            return pharmacies;
+            return pharmacyRepository.GetAll();
         }
     }
 }
