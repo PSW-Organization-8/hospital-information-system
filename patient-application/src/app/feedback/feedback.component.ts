@@ -13,6 +13,7 @@ export class FeedbackComponent implements OnInit {
   content: string = "";
   anonymous: boolean = false;
   publishable: boolean = true;
+  isContentEmpty: boolean = true;
 
   constructor(private _feedbackService:RandomNumberGeneratorService) { }
 
@@ -25,23 +26,32 @@ export class FeedbackComponent implements OnInit {
   }
 
   sendFeedback(): void{
-    this._feedbackService.sendFeedbackToServer(this.content, this.anonymous, this.publishable);
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-    
-    Toast.fire({
-      icon: 'success',
-      title: 'Successfully sent feedback'
-    })
-    this.content = "";
+    if(this.content == ""){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Please fill out the text field',
+      })
+    }
+    else{
+      this._feedbackService.sendFeedbackToServer(this.content, this.anonymous, this.publishable);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Successfully sent feedback'
+      })
+      this.content = "";
+    }
   }
 }
