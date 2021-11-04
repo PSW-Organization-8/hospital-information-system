@@ -9,7 +9,7 @@ using PharmacyClassLib;
 namespace PharmacyAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20211104171034_first")]
+    [Migration("20211104224142_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

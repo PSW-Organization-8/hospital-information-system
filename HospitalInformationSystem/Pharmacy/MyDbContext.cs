@@ -19,7 +19,7 @@ namespace PharmacyClassLib
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            String connectionString = "Server=localhost; Port =5432; Database =Integration; User Id = postgres; Password =root;";
+            String connectionString = "Server=localhost; Port =5432; Database =Pharmacy; User Id = postgres; Password =root;";
             optionsBuilder.UseNpgsql(connectionString);
         }
 
