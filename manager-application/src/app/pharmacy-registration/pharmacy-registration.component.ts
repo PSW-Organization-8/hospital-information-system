@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PharmacyRegistrationService } from './pharmacy-registration.service';
 import { Pharmacy } from './pharmacy';
 import { ToastrService } from 'ngx-toastr';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-pharmacy-registration',
@@ -23,9 +22,14 @@ export class PharmacyRegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.model.Port = this.model.PortNum.toString();
-    this.pharmacyRegistrationService.registerPharmacy(this.model)
-    this.toastr.success('Successfully registered a pharmacy')
-    this.model = new Pharmacy("", "", "", "", 0)
+    this.pharmacyRegistrationService.registerPharmacy(this.model).subscribe(
+      (data) => {
+        this.toastr.success('Successfully registered a pharmacy')
+        this.model = new Pharmacy("", "", "", "", 0)
+      },
+      (error) => {
+        this.toastr.error('There is an error')
+      })
   }
 
 }
