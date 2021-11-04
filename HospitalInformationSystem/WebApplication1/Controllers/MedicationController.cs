@@ -7,9 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PharmacyAPI.Filters;
 
 namespace PharmacyAPI.Controllers
 {
+    [ApiKeyAuth]
     [ApiController]
     [Route("[controller]")]
     public class MedicationController

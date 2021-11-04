@@ -7,6 +7,6 @@ namespace PharmacyClassLib.Repository.RegistratedHospitalRepository
 {
     public interface IRegistratedHospitalRepository : IGenericRepository<RegistratedHospital, string>
     {
-
+        bool ExistsByApiKey(string apiKey);
     }
 }
