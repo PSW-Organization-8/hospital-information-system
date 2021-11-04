@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AllFeedbackViewComponent } from './feedbacks/all-feedback-view/all-feedback-view.component';
@@ -11,6 +12,11 @@ import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+
+const routes: Routes = [
+  { path: 'feedbackview', component: AllFeedbackViewComponent },
+  { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
+];
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    RouterModule.forRoot(routes),
   ],
+  exports: [RouterModule],
   providers: [AllFeedbackViewService],
   bootstrap: [AppComponent]
 })
