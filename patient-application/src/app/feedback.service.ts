@@ -15,9 +15,11 @@ export class RandomNumberGeneratorService {
     return this.http.get<any>(this._url + 'feedback');
   }
 
-  public sendFeedbackToServer(content: string): void {
+  public sendFeedbackToServer(content: string, anonymous: boolean, publishable: boolean): void {
     let feedback = {
       Content: content,
+      IsAnonymous: anonymous,
+      IsPublishable: publishable,
       IsApproved: false,
       PatientId: '1',
     };

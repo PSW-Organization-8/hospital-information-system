@@ -2,5 +2,13 @@
 @import "bulma/css/bulma.css";
 
 .is-primary {
-  background-color: #009ddc !important;
+  background-color: #5688C7 !important;
+}
+
+.is-info{
+  background-color: #13293D !important;
+}
+
+.is-warning{
+  border-color: #EFB0A1 !important;
 }
