@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PharmacyClassLib.Model;
+using PharmacyClassLib.Repository.RegistratedHospitalRepository;
 
 namespace WebApplication1
 {
@@ -29,9 +31,10 @@ namespace WebApplication1
             services.AddControllers();
             services.AddTransient<IMedicationRepository, MedicationRepository>();
             services.AddTransient<IPharmacyRepository, PharmacyRepository>();
+            services.AddTransient<IRegistratedHospitalRepository, RegistratedHospitalRepository>();
             services.AddScoped<IMedicationService, MedicationService>();
             services.AddScoped<IPharmacyService, PharmacyService>();
-
+            services.AddScoped<IHospitalRegistrationService, HospitalRegistrationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

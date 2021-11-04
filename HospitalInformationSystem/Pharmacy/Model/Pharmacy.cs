@@ -13,16 +13,19 @@ namespace PharmacyClassLib.Model
         public long Id;
 
         public string Name { get; set; }
-
-        public String APIKey { get; set; }
+        public string City { get; set; }
+        public string Adress { get; set; }
+        public string AdressNumber { get; set; }
 
         public Pharmacy() { }
 
-        public Pharmacy(long Id,string Name,String ApiKey)
+        public Pharmacy(long id, string name, string city, string adress, string adressNumber)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.APIKey = ApiKey;
+            this.Id = id;
+            this.Name = name;
+            this.City = city;
+            this.Adress = adress;
+            this.AdressNumber = adressNumber;
         }
 
     }
