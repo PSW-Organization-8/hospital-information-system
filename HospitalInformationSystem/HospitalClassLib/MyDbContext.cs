@@ -1,4 +1,4 @@
-﻿using HospitalClassLib.Feedbacks.Model;
+﻿using HospitalClassLib.Schedule.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

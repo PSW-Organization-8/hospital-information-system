@@ -1,6 +1,6 @@
 using HospitalClassLib;
-using HospitalClassLib.Feedbacks.Repository;
-using HospitalClassLib.Feedbacks.Service;
+using HospitalClassLib.Schedule.Repository.FeedbackRepository;
+using HospitalClassLib.Schedule.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

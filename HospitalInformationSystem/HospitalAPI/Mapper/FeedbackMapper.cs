@@ -1,5 +1,5 @@
 ﻿using HospitalAPI.Dto;
-using HospitalClassLib.Feedbacks.Model;
+using HospitalClassLib.Schedule.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

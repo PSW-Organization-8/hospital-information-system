@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HospitalClassLib.SharedModel;
 
-namespace HospitalClassLib.Feedbacks.Model
+namespace HospitalClassLib.Schedule.Model
 {
     public class Feedback
     {
@@ -27,24 +27,24 @@ namespace HospitalClassLib.Feedbacks.Model
 
         public Feedback(string content, bool isApproved, DateTime date, string patientId)
         {
-            this.Content = content;
-            this.IsApproved = isApproved;
-            this.Date = date;
-            this.PatientId = patientId;
-            this.IsPublishable = true;
-            this.IsAnonymous = false;
+            Content = content;
+            IsApproved = isApproved;
+            Date = date;
+            PatientId = patientId;
+            IsPublishable = true;
+            IsAnonymous = false;
         }
 
         public Feedback(string content, bool isApproved, DateTime date, string patientId, bool isPublishable, bool isAnonymous)
         {
-            this.Content = content;
-            this.IsApproved = isApproved;
-            this.Date = date;
-            this.PatientId = patientId;
-            this.IsPublishable = isPublishable;
-            this.IsAnonymous = isAnonymous;
+            Content = content;
+            IsApproved = isApproved;
+            Date = date;
+            PatientId = patientId;
+            IsPublishable = isPublishable;
+            IsAnonymous = isAnonymous;
         }
-        
+
     }
 
 }
