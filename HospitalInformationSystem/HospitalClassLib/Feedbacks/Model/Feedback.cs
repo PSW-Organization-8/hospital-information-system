@@ -21,12 +21,10 @@ namespace HospitalClassLib.Feedbacks.Model
         public bool IsPublishable { get; set; }
         public bool IsAnonymous { get; set; }
 
-
-
-
-
         public Feedback(string c) { Id = "1"; Content = c; }
+
         public Feedback() { Id = "1"; }
+
         public Feedback(string content, bool isApproved, DateTime date, string patientId)
         {
             this.Content = content;
@@ -34,10 +32,10 @@ namespace HospitalClassLib.Feedbacks.Model
             this.Date = date;
             this.PatientId = patientId;
             this.IsPublishable = true;
-            this.IsAnonymous = true;
+            this.IsAnonymous = false;
         }
 
-        /*public Feedback(string content, bool isApproved, DateTime date, string patientId, bool isPublishable, bool isAnonymous)
+        public Feedback(string content, bool isApproved, DateTime date, string patientId, bool isPublishable, bool isAnonymous)
         {
             this.Content = content;
             this.IsApproved = isApproved;
@@ -46,7 +44,7 @@ namespace HospitalClassLib.Feedbacks.Model
             this.IsPublishable = isPublishable;
             this.IsAnonymous = isAnonymous;
         }
-        */
+        
     }
 
 }

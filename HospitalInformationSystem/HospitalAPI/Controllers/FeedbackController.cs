@@ -41,7 +41,7 @@ namespace HospitalAPI.Controllers
         [HttpPut("{id}")]
         public void ApproveFeedback(string id)
         {
-            //FeedbackService.GetInstance().ApproveFeedback(id);
+            feedbackService.ApproveFeedback(id);
         }
 
         [HttpGet]
@@ -50,7 +50,6 @@ namespace HospitalAPI.Controllers
         {
             return feedbackRepository.GetApproved();
         }
-
 
         [HttpGet]
         public List<Feedback> GetUsers()

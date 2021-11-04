@@ -16,11 +16,6 @@ namespace HospitalClassLib.Feedbacks.Repository
             this.dbContext = dbContext;
         }
 
-        /*public void ApproveFeedback(string id)
-        {
-            dbContext.Feedbacks.Where(x =)
-        }*/
-
         public List<Feedback> GetApproved()
         {
             return dbContext.Feedbacks.Where(x => ((x.IsApproved == true) && (x.IsPublishable == true))).ToList();

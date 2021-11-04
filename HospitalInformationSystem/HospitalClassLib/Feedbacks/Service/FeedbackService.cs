@@ -61,6 +61,12 @@ namespace HospitalClassLib.Feedbacks.Service
             this.feedbackRepository = feedbackRepository;
         }
 
+        public Feedback Add(Feedback feedback)
+        {
+            feedback.Id = (feedbackRepository.GetAll().ToList().Count() + 1).ToString();
+            return feedbackRepository.Create(feedback);
+        }
+
         public List<Feedback> Get()
         {
             return feedbackRepository.GetAll();
@@ -83,15 +89,11 @@ namespace HospitalClassLib.Feedbacks.Service
 
         public void ApproveFeedback(string id) 
         { 
-            Feedback feedback = feedbackRepository.Get(id);
-            feedback.IsApproved = true;
+            Feedback f = feedbackRepository.Get(id);
+            Feedback feedback = new Feedback(f.Content, true, f.Date, f.PatientId);
+            feedback.Id = f.Id;
             feedbackRepository.Update(feedback);
         }
 
-        public Feedback Add(Feedback feedback)
-        {
-            feedback.Id = (feedbackRepository.GetAll().ToList().Count() + 1).ToString();
-            return feedbackRepository.Create(feedback);
-        }
     }
 }
