@@ -1,11 +1,35 @@
-<h1>{{feedback}}</h1>
+<div class="container my-5 pt-5">
+  <div class="columns">
+    <div class="column is-three-fifths">
+      <h1>{{ feedback }} leave your feedback! Be nice!</h1>
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="e.g Alex Smith" />
+        </div>
+      </div>
 
-<div name="feedbackForm">
-    <form action="addFeedback">
+      <div class="field">
+        <label class="label">Content</label>
+        <div class="control">
+          <input
+            class="input"
+            [(ngModel)]="content"
+            placeholder="e.g. alexsmith@gmail.com"
+          />
+        </div>
+      </div>
 
-        <label><b>Content</b></label>
-        <input name="content" type="text" [(ngModel)]="content" required>
+      <input
+        (click)="sendFeedback()"
+        type="submit"
+        class="button is-primary"
+        value="Send"
+      />
+    </div>
 
-        <input (click)="sendFeedback()" type="submit" class="button" value="Send">
-    </form>
+    <div class="column has-background-black">Some text here</div>
+
+    <div class="column">Some text here</div>
+  </div>
 </div>
