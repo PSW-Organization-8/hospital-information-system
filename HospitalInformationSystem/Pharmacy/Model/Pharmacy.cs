@@ -10,7 +10,7 @@ namespace PharmacyClassLib.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id;
+        public long Id { get; set; }
 
         public string Name { get; set; }
         public string City { get; set; }

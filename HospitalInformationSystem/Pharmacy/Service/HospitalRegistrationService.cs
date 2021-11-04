@@ -23,7 +23,7 @@ namespace PharmacyClassLib.Service
         public RegistratedHospital Register(RegistratedHospital newHospital)
         {
             newHospital.ApiKey = Guid.NewGuid().ToString();
-            return regHospitalRepository.Register(newHospital);
+            return regHospitalRepository.Create(newHospital);
         }
     }
 }

@@ -5,43 +5,16 @@ using PharmacyClassLib.Model;
 
 namespace PharmacyClassLib.Repository.RegistratedHospitalRepository
 {
-    public class RegistratedHospitalRepository : IRegistratedHospitalRepository
+    public class RegistratedHospitalRepository : AbstractSqlRepository<RegistratedHospital, string>, IRegistratedHospitalRepository
     {
-        private Dictionary<string, RegistratedHospital> registratedHospitals = new Dictionary<string, RegistratedHospital>();
-
-        public RegistratedHospitalRepository()
+        public RegistratedHospitalRepository(MyDbContext dbContext) : base(dbContext)
         {
-            registratedHospitals.Add("Najbolnica", new RegistratedHospital("Najbolnica", "www.neki-sajt.com", "123qwe123"));
+
         }
 
-        public RegistratedHospital Get(string hospitalName)
+        protected override string GetId(RegistratedHospital entity)
         {
-            if (registratedHospitals.ContainsKey(hospitalName))
-                return registratedHospitals[hospitalName];
-            return null;
-        }
-
-        public RegistratedHospital Register(RegistratedHospital newHospital)
-        {
-            if (registratedHospitals.ContainsKey(newHospital.Name))
-            {
-                return null;
-            }
-            registratedHospitals.Add(newHospital.Name, newHospital);
-            return newHospital;
-        }
-
-        public bool IsRegistrated(string apiKey)
-        {
-            foreach (RegistratedHospital hospital in registratedHospitals.Values)
-            {
-                if (hospital.ApiKey.Equals(apiKey))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return entity.Name;
         }
     }
 }

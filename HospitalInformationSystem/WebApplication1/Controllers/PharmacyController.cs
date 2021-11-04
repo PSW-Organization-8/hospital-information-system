@@ -21,7 +21,7 @@ namespace PharmacyAPI.Controllers
         [HttpGet]
         public List<Pharmacy> Get()
         {
-            return pharmacyService.Get();
+            return pharmacyService.GetAll();
         }
     }
 }

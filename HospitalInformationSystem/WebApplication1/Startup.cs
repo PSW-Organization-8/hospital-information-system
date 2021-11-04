@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using PharmacyClassLib.Model;
 using PharmacyClassLib.Repository.RegistratedHospitalRepository;
+using PharmacyClassLib;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1
 {
@@ -29,8 +31,9 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IMedicationRepository, MedicationRepository>();
+            services.AddDbContext<MyDbContext>(options => options.UseNpgsql(x => x.MigrationsAssembly("PharmacyAPI")));
             services.AddTransient<IPharmacyRepository, PharmacyRepository>();
+            services.AddTransient<IMedicationRepository, MedicationRepository>();
             services.AddTransient<IRegistratedHospitalRepository, RegistratedHospitalRepository>();
             services.AddScoped<IMedicationService, MedicationService>();
             services.AddScoped<IPharmacyService, PharmacyService>();

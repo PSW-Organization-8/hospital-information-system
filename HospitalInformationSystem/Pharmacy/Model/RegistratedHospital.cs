@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace PharmacyClassLib.Model
 {
     public class RegistratedHospital
     {
+        [Key]
         public string Name { get; set; }
         public string Url { get; set; }
         public string ApiKey { get; set; }

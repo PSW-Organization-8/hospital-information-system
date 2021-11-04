@@ -5,9 +5,8 @@ using PharmacyClassLib.Model;
 
 namespace PharmacyClassLib.Repository.RegistratedHospitalRepository
 {
-    public interface IRegistratedHospitalRepository
+    public interface IRegistratedHospitalRepository : IGenericRepository<RegistratedHospital, string>
     {
-        RegistratedHospital Get(string hospitalName);
-        RegistratedHospital Register(RegistratedHospital newHospital);
+
     }
 }

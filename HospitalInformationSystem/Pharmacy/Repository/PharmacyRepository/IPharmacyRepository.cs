@@ -5,8 +5,8 @@ using System.Text;
 
 namespace PharmacyClassLib.Repository
 {
-    public interface IPharmacyRepository
+    public interface IPharmacyRepository : IGenericRepository<Pharmacy, long>
     {
-        List<Pharmacy> Get();
+
     }
 }
