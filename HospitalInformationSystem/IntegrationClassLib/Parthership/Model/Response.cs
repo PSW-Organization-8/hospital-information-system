@@ -8,24 +8,22 @@ using System.Threading.Tasks;
 
 namespace IntegrationClassLib.Parthership.Model
 {
-    public class Objection
+    public class Response
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         public string PharmacyName { get; set; }
-        public string TextObjection { get; set; }
+        public string TextResponse { get; set; }
 
-        public Objection() { }
+        public Response() { }
 
-        public Objection(string text, string name) {
+        public Response(string text, string name)
+        {
 
-            TextObjection = text;
+            TextResponse = text;
             PharmacyName = name;
-            
+
         }
-
-
     }
 }

@@ -2,8 +2,9 @@
     <li class="element1" *ngFor="let objection of objections">
         <tr>
         <td>
-            <h2>{{objection.pharmacyName}}</h2>
-            <p>{{objection.textObjection}}</p>
+            <h2>Pharmacy: {{objection.pharmacyName}}</h2>
+            <p>Objection: {{objection.textObjection}}</p>
+            <p>Response: {{objection.textResponse}}</p>
         </td>
         </tr>
     </li>

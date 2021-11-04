@@ -9,6 +9,7 @@ import { AllFeedbackViewComponent } from './feedbacks/all-feedback-view/all-feed
 import { AllFeedbackViewService } from './feedbacks/all-feedback-view/all-feedback-view.service';
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
 import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
+import { CreateObjectionComponent } from './create-objection/create-objection.component';
 
 
 import { AppComponent } from './app.component';
@@ -23,12 +24,10 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'feedbackview', component: AllFeedbackViewComponent },
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
-  { path: 'header', component: HeaderComponent }
+  { path: 'header', component: HeaderComponent },
+  { path: 'allObjections', component: AllObjectionsViewComponent},
+  { path: 'createObjection', component: CreateObjectionComponent}
 ];
-
-import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
-import { CreateObjectionComponent } from './create-objection/create-objection.component';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({

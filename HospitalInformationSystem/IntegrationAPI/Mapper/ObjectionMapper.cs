@@ -10,11 +10,26 @@ namespace IntegrationAPI.Mapper
     public class ObjectionMapper
     {
         public static Objection ObjectionDTOToObjection(ObjectionDTO objection) {
-            return new Objection(objection.PharmacyName, objection.TextObjection);
+            return new Objection(objection.TextObjection, objection.PharmacyName);
         }
 
         public static ObjectionDTO ObjectionToObjectionDTO(Objection objection) {
             return new ObjectionDTO (objection.TextObjection, objection.PharmacyName);
+        }
+
+        public static List<ObjectionResponseDTO> ObjectionResponsesToObjectionResponseDTO(List<Objection> objections, List<Response> responses) {
+            List<ObjectionResponseDTO> objectionResponseDTOs = new List<ObjectionResponseDTO>();
+            foreach (Objection o in objections) {
+                ObjectionResponseDTO objectionResponse = new ObjectionResponseDTO(o.TextObjection, o.PharmacyName, "no response");
+                foreach (Response r in responses) {
+                    if (r.PharmacyName.Equals(o.PharmacyName)) {
+                        objectionResponse.TextResponse = r.TextResponse;
+                        break;
+                    }
+                }
+                objectionResponseDTOs.Add(objectionResponse);
+            }
+            return objectionResponseDTOs;
         }
 
     }

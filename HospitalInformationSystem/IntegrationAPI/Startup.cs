@@ -1,4 +1,6 @@
 using IntegrationClassLib;
+using IntegrationClassLib.Parthership.Repository;
+using IntegrationClassLib.Parthership.Service;
 using IntegrationClassLib.Pharmacy.Repository.PharmacyRepo;
 using IntegrationClassLib.Pharmacy.Service;
 using Microsoft.AspNetCore.Builder;
@@ -48,7 +50,11 @@ namespace IntegrationAPI
 
             services.AddDbContext<MyDbContext>(options => options.UseNpgsql(x => x.MigrationsAssembly("IntegrationAPI")));
             services.AddTransient<IPharmacyRepository, PharmacyRepository>();
+            services.AddTransient<IObjectionRepository,ObjectionRepository>();
+            services.AddTransient<IResponseRepository, ResponseRepository>();
             services.AddScoped<PharmacyService>();
+            services.AddScoped<ObjectionService>();
+            services.AddScoped<ResponseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

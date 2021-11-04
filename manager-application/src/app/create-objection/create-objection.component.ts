@@ -10,7 +10,7 @@ import { CreateObjectionService } from './create-objection.service';
 export class CreateObjectionComponent implements OnInit {
   
   pharmacyName: string="";
-  text: string="";
+  textObjection: string="";
 
   constructor(private service: CreateObjectionService) { }
  
@@ -20,7 +20,7 @@ export class CreateObjectionComponent implements OnInit {
   }
 
   sendObjection(): void{
-    this.service.sendObjectionToServer(this.pharmacyName,this.text);
+    this.service.sendObjectionToServer(this.pharmacyName,this.textObjection);
   }
 
 }

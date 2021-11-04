@@ -2,15 +2,17 @@
 using IntegrationClassLib;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace IntegrationAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211104202009_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,32 +43,6 @@ namespace IntegrationAPI.Migrations
                             Id = 1L,
                             PharmacyName = "Apoteka1",
                             TextObjection = "Lose usluge"
-                        });
-                });
-
-            modelBuilder.Entity("IntegrationClassLib.Parthership.Model.Response", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("PharmacyName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("TextResponse")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Response");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            PharmacyName = "Apoteka1",
-                            TextResponse = "Nije tacno"
                         });
                 });
 

@@ -17,22 +17,24 @@ namespace IntegrationAPI.Controllers
     [ApiController]
     public class ObjectionController : ControllerBase
     {
+        private readonly ObjectionService objectionService;
+        private readonly ResponseService responseService;
 
-        private readonly ILogger<ObjectionController> _logger;
-        public ObjectionController(ILogger<ObjectionController> logger)
+        public ObjectionController(ObjectionService objectionService, ResponseService responseService)
         {
-            _logger = logger;
+            this.objectionService = objectionService;
+            this.responseService = responseService;
         }
 
         [HttpGet]
-        public ObservableCollection<Objection> GetAll()
+        public List<ObjectionResponseDTO> GetAll()
         {
-            return ObjectionService.GetInstance().GetAll();
+            return ObjectionMapper.ObjectionResponsesToObjectionResponseDTO(objectionService.GetAll(), responseService.GetAll());
         }
         [HttpPost]
         public Objection Add(ObjectionDTO objectionDTO)
         {
-            return ObjectionService.GetInstance().Add(ObjectionMapper.ObjectionDTOToObjection(objectionDTO));
+            return objectionService.Add(ObjectionMapper.ObjectionDTOToObjection(objectionDTO));
         }
 
     }

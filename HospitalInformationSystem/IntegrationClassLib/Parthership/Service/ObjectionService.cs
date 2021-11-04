@@ -1,4 +1,5 @@
 ﻿using IntegrationClassLib.Parthership.Model;
+using IntegrationClassLib.Parthership.Repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,28 +13,21 @@ namespace IntegrationClassLib.Parthership.Service
     public class ObjectionService
     {
 
-        ObservableCollection<Objection> objections = new ObservableCollection<Objection>();
-        private static ObjectionService instance = null;
 
-        public static ObjectionService GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new ObjectionService();
-            }
-            return instance;
+        private readonly IObjectionRepository objectionRepository;
+
+        public ObjectionService(IObjectionRepository objectionRepository) {
+            this.objectionRepository = objectionRepository;
         }
 
         public Objection Add(Objection objection)
         {
-            objection.Id = (objections.Count + 1).ToString();
-            objections.Add(objection);
-            return objection;
+            return objectionRepository.Create(objection);
         }
 
-        public ObservableCollection<Objection> GetAll()
+        public List<Objection> GetAll()
         {
-            return objections;
+            return objectionRepository.GetAll();
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using IntegrationClassLib.Parthership.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace IntegrationClassLib
@@ -24,6 +25,12 @@ namespace IntegrationClassLib
             modelBuilder.Entity<Pharmacy.Model.Pharmacy>().HasData(
                 new Pharmacy.Model.Pharmacy { Id = 1, Name = "Apoteka1", ApiKey="asd123easd", Url="asdsad", Port="1234"}
             );
+            modelBuilder.Entity<Objection>().HasData(
+                new Objection { Id = 1, PharmacyName = "Apoteka1", TextObjection = "Lose usluge" }
+            );
+            modelBuilder.Entity<Response>().HasData(
+               new Response { Id = 1, PharmacyName = "Apoteka1", TextResponse = "Nije tacno" }
+           );
         }
     }
 }
