@@ -64,9 +64,9 @@ namespace HospitalAPI.Controllers
         }
 
         [HttpPost]
-        public Feedback AddUser(Feedback user)
+        public Feedback AddUser(FeedbackDto feedbackDto)
         {
-            return feedbackService.Create(user);
+            return feedbackService.Create(FeedbackMapper.FeedbackDtoToFeedback(feedbackDto));
         }
 
         [HttpDelete("{id?}")]
