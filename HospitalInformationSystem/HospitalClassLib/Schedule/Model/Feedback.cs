@@ -13,7 +13,7 @@ namespace HospitalClassLib.Schedule.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Content { get; set; }
         public string PatientId { get; set; }
         public DateTime Date { get; set; }
@@ -21,9 +21,9 @@ namespace HospitalClassLib.Schedule.Model
         public bool IsPublishable { get; set; }
         public bool IsAnonymous { get; set; }
 
-        public Feedback(string c) { Id = "1"; Content = c; }
+        public Feedback(string c) { Id = 1; Content = c; }
 
-        public Feedback() { Id = "1"; }
+        public Feedback() { Id = 1; }
 
         public Feedback(string content, bool isApproved, DateTime date, string patientId)
         {

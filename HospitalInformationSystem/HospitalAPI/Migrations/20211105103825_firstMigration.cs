@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HospitalAPI.Migrations
 {
@@ -11,7 +12,8 @@ namespace HospitalAPI.Migrations
                 name: "Feedbacks",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Content = table.Column<string>(type: "text", nullable: true),
                     PatientId = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -29,8 +31,8 @@ namespace HospitalAPI.Migrations
                 columns: new[] { "Id", "Content", "Date", "IsAnonymous", "IsApproved", "IsPublishable", "PatientId" },
                 values: new object[,]
                 {
-                    { "1", "Tekst neki", new DateTime(2021, 11, 3, 23, 28, 34, 698, DateTimeKind.Local).AddTicks(126), false, false, true, "1" },
-                    { "2", "Drugi neki", new DateTime(2021, 11, 3, 23, 28, 34, 702, DateTimeKind.Local).AddTicks(8791), false, false, true, "2" }
+                    { 1, "Tekst neki", new DateTime(2021, 11, 5, 11, 38, 24, 778, DateTimeKind.Local).AddTicks(8962), false, true, true, "1" },
+                    { 2, "Drugi neki", new DateTime(2021, 11, 5, 11, 38, 24, 781, DateTimeKind.Local).AddTicks(4668), false, false, true, "2" }
                 });
         }
 

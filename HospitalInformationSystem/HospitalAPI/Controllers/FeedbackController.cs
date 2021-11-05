@@ -44,7 +44,7 @@ namespace HospitalAPI.Controllers
         }
 
         [HttpGet("{id?}")]
-        public IActionResult GetFeedback(string id)
+        public IActionResult GetFeedback(int id)
         {
             return Ok(feedbackService.Get(id));
         }
@@ -59,19 +59,19 @@ namespace HospitalAPI.Controllers
         }
 
         [HttpDelete("{id?}")]
-        public IActionResult DeleteFeedback(string id)
+        public IActionResult DeleteFeedback(int id)
         {
             return Ok(feedbackService.Delete(id));
         }
 
         [HttpPut("{id}")]
-        public void ApproveFeedback(string id)
+        public void ApproveFeedback(int id)
         {
             feedbackService.ApproveFeedback(id);
         }
 
         [HttpPut("remove/{id}")]
-        public void RemoveFeedback(string id)
+        public void RemoveFeedback(int id)
         {
             feedbackService.RemoveFeedback(id);
         }

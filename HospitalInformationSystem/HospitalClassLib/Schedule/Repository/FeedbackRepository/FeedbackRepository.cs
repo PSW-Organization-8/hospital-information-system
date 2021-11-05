@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HospitalClassLib.Schedule.Repository.FeedbackRepository
 {
-    public class FeedbackRepository : AbstractSqlRepository<Feedback, string>, IFeedbackRepository
+    public class FeedbackRepository : AbstractSqlRepository<Feedback, int>, IFeedbackRepository
     {
         private MyDbContext dbContext;
 
@@ -21,7 +21,7 @@ namespace HospitalClassLib.Schedule.Repository.FeedbackRepository
             return dbContext.Feedbacks.Where(x => x.IsApproved && x.IsPublishable).ToList();
         }
 
-        protected override string GetId(Feedback entity)
+        protected override int GetId(Feedback entity)
         {
             return entity.Id;
         }

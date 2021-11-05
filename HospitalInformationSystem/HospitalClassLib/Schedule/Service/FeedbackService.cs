@@ -33,7 +33,6 @@ namespace HospitalClassLib.Schedule.Service
 
         public Feedback Add(Feedback feedback)
         {
-            feedback.Id = (GetAll().Count + 1).ToString();
             return feedbackRepository.Create(feedback);
         }
 
@@ -42,7 +41,7 @@ namespace HospitalClassLib.Schedule.Service
             return feedbackRepository.GetAll();
         }
 
-        public Feedback Get(string id)
+        public Feedback Get(int id)
         {
             return feedbackRepository.Get(id);
         }
@@ -52,19 +51,19 @@ namespace HospitalClassLib.Schedule.Service
             return feedbackRepository.Create(feedback);
         }
 
-        public bool Delete(string id)
+        public bool Delete(int id)
         {
             return feedbackRepository.Delete(id);
         }
 
-        public void ApproveFeedback(string id)
+        public void ApproveFeedback(int id)
         {
             Feedback feedbackForChange = feedbackRepository.Get(id);
             feedbackForChange.IsApproved = true;
             feedbackRepository.Update(feedbackForChange);
         }
 
-        public void RemoveFeedback(string id)
+        public void RemoveFeedback(int id)
         {
             Feedback feedbackForChange = feedbackRepository.Get(id);
             feedbackForChange.IsApproved = false;

@@ -19,11 +19,12 @@ namespace HospitalAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("HospitalClassLib.Feedbacks.Model.Feedback", b =>
+            modelBuilder.Entity("HospitalClassLib.Schedule.Model.Feedback", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("text");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Content")
                         .HasColumnType("text");
@@ -50,9 +51,9 @@ namespace HospitalAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1",
+                            Id = 1,
                             Content = "Tekst neki",
-                            Date = new DateTime(2021, 11, 3, 23, 39, 20, 454, DateTimeKind.Local).AddTicks(1777),
+                            Date = new DateTime(2021, 11, 5, 11, 38, 24, 778, DateTimeKind.Local).AddTicks(8962),
                             IsAnonymous = false,
                             IsApproved = true,
                             IsPublishable = true,
@@ -60,9 +61,9 @@ namespace HospitalAPI.Migrations
                         },
                         new
                         {
-                            Id = "2",
+                            Id = 2,
                             Content = "Drugi neki",
-                            Date = new DateTime(2021, 11, 3, 23, 39, 20, 458, DateTimeKind.Local).AddTicks(8590),
+                            Date = new DateTime(2021, 11, 5, 11, 38, 24, 781, DateTimeKind.Local).AddTicks(4668),
                             IsAnonymous = false,
                             IsApproved = false,
                             IsPublishable = true,

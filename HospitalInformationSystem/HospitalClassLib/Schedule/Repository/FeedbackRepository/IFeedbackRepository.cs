@@ -11,10 +11,10 @@ namespace HospitalClassLib.Schedule.Repository.FeedbackRepository
     {
         List<Feedback> GetAll();
         List<Feedback> GetApproved();
-        Feedback Get(string id);
+        Feedback Get(int id);
         Feedback Update(Feedback feedback);
         Feedback Create(Feedback feedback);
-        bool ExistsById(string id);
-        bool Delete(string id);
+        bool ExistsById(int id);
+        bool Delete(int id);
     }
 }
