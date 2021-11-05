@@ -17,4 +17,7 @@ export class AllFeedbackViewService {
   public approveFeedback(feedbackId: string) {
     return this.http.put<string>(this._url + 'feedback/' + feedbackId, feedbackId);
   }
+  public removeFeedback(feedbackId: string) {
+    return this.http.put<string>(this._url + 'feedback/remove/' + feedbackId, feedbackId);
+  }
 }

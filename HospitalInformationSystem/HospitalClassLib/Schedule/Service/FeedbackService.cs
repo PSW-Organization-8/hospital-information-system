@@ -60,9 +60,15 @@ namespace HospitalClassLib.Schedule.Service
         public void ApproveFeedback(string id)
         {
             Feedback feedbackForChange = feedbackRepository.Get(id);
-            Feedback feedback = new Feedback(feedbackForChange.Content, true, feedbackForChange.Date, feedbackForChange.PatientId);
-            feedback.Id = feedbackForChange.Id;
-            feedbackRepository.Update(feedback);
+            feedbackForChange.IsApproved = true;
+            feedbackRepository.Update(feedbackForChange);
+        }
+
+        public void RemoveFeedback(string id)
+        {
+            Feedback feedbackForChange = feedbackRepository.Get(id);
+            feedbackForChange.IsApproved = false;
+            feedbackRepository.Update(feedbackForChange);
         }
 
     }

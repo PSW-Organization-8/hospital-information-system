@@ -25,4 +25,7 @@ export class AllFeedbackViewComponent implements OnInit {
     this._allFeedbackViewService.approveFeedback(feedbackId).subscribe(() => this.getAllFeedbacks());
   }
 
+  removeFeedback(feedbackId: string): void {
+    this._allFeedbackViewService.removeFeedback(feedbackId).subscribe(() => this.getAllFeedbacks());
+  }
 }
