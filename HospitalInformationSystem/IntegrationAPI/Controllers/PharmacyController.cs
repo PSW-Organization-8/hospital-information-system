@@ -31,6 +31,5 @@ namespace IntegrationAPI.Controllers
             return pharmacyService.Add(PharmacyMapper.PharmacyDtoToPharmacy(pharmacyDto));
         }
 
-
     }
 }

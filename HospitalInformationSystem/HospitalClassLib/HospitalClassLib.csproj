@@ -14,6 +14,12 @@
     <Folder Include="GraphicalEditor\Model\" />
     <Folder Include="GraphicalEditor\Service\" />
     <Folder Include="GraphicalEditor\Repository\" />
+    <Compile Remove="GraphicalEditor\**" />
+    <EmbeddedResource Remove="GraphicalEditor\**" />
+    <None Remove="GraphicalEditor\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="MedicalRecords\Service\" />
     <Folder Include="RoomsAndEquipment\Service\" />
   </ItemGroup>

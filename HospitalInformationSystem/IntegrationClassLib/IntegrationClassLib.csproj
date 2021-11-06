@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Parthership\Model\" />
-    <Folder Include="Parthership\Service\" />
-    <Folder Include="Parthership\Repository\" />
-    <Folder Include="Tendering\Model\" />
-    <Folder Include="Tendering\Service\" />
-    <Folder Include="Tendering\Repository\" />
+    <Compile Remove="Parthership\**" />
+    <Compile Remove="Tendering\**" />
+    <EmbeddedResource Remove="Parthership\**" />
+    <EmbeddedResource Remove="Tendering\**" />
+    <None Remove="Parthership\**" />
+    <None Remove="Tendering\**" />
   </ItemGroup>
 
   <ItemGroup>

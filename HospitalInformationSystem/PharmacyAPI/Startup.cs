@@ -15,6 +15,8 @@ using PharmacyClassLib.Model;
 using PharmacyClassLib.Repository.RegistratedHospitalRepository;
 using PharmacyClassLib;
 using Microsoft.EntityFrameworkCore;
+using PharmacyClassLib.Repository.MedicationIngredientRepository;
+using PharmacyClassLib.Repository.MedicationIngredientsRepository;
 
 namespace WebApplication1
 {
@@ -31,13 +33,17 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddDbContext<MyDbContext>(options => options.UseNpgsql(x => x.MigrationsAssembly("PharmacyAPI")));
             services.AddTransient<IPharmacyRepository, PharmacyRepository>();
+            services.AddTransient<IMedicationIngredientRepository, MedicationIngredientRepository>();
             services.AddTransient<IMedicationRepository, MedicationRepository>();
             services.AddTransient<IRegistratedHospitalRepository, RegistratedHospitalRepository>();
             services.AddScoped<IMedicationService, MedicationService>();
             services.AddScoped<IPharmacyService, PharmacyService>();
             services.AddScoped<IHospitalRegistrationService, HospitalRegistrationService>();
+            services.AddScoped<IMedicationIngredientService, MedicationIngredientService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

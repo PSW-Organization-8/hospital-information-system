@@ -11,7 +11,6 @@ using PharmacyAPI.Filters;
 
 namespace PharmacyAPI.Controllers
 {
-    [ApiKeyAuth]
     [ApiController]
     [Route("[controller]")]
     public class MedicationController
@@ -23,10 +22,13 @@ namespace PharmacyAPI.Controllers
         {
             this.medicationService = medicationService;
         }
+
         [HttpGet]
-        public List<Medication> Get()
+        public List<Medication> GetAll()
         {
-            return medicationService.Get();
+            return medicationService.GetAll();
         }
+
     }
+
 }
