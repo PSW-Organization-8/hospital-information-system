@@ -7,6 +7,6 @@ namespace PharmacyClassLib.Service
 {
     public interface IMedicationService
     {
-        public List<Medication> Get();
+        List<Medication> GetAll();
     }
 }

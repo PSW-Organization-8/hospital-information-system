@@ -11,7 +11,9 @@ namespace HospitalClassLib.Feedbacks.Service
     public class FeedbackService
     {
         ObservableCollection<Feedback> feedbacks = new ObservableCollection<Feedback>();
+
         private static FeedbackService instance = null;
+
         public static FeedbackService GetInstance()
         {
             if (instance == null)
@@ -20,16 +22,19 @@ namespace HospitalClassLib.Feedbacks.Service
             }
             return instance;
         }
+
         public Feedback Add(Feedback feedback)
         {
             feedback.Id = (feedbacks.Count + 1).ToString();
             feedbacks.Add(feedback);
             return feedback;
         }
+
         public ObservableCollection<Feedback> GetAll()
         {
             return feedbacks;
         }
+
         public void ApproveFeedback(string feedbackId)
         {
             foreach(Feedback feedback in this.feedbacks)
@@ -49,5 +54,6 @@ namespace HospitalClassLib.Feedbacks.Service
             }
             return approvedFeedbacks;
         }
+
     }
 }

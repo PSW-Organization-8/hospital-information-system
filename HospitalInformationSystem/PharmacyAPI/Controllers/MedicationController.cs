@@ -26,7 +26,8 @@ namespace PharmacyAPI.Controllers
         [HttpGet]
         public List<Medication> Get()
         {
-            return medicationService.Get();
+            return null;
+            //return medicationService.Get();
         }
     }
 }

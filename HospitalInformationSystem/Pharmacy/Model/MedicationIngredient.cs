@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PharmacyClassLib.Model
 {
-    public class MedicationIngradient
+    public class MedicationIngredient
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -14,12 +14,12 @@ namespace PharmacyClassLib.Model
 
         public string Name { get; set; }
 
-        public MedicationIngradient()
+        public MedicationIngredient()
         {
 
         }
 
-        public MedicationIngradient(long Id,String Name)
+        public MedicationIngredient(long Id,String Name)
         {
             this.Id = Id;
             this.Name = Name;
