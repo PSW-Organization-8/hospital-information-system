@@ -17,6 +17,8 @@ using PharmacyClassLib;
 using Microsoft.EntityFrameworkCore;
 using PharmacyClassLib.Repository.MedicationIngredientRepository;
 using PharmacyClassLib.Repository.MedicationIngredientsRepository;
+using PharmacyClassLib.Repository.ObjectionRepository;
+using PharmacyClassLib.Repository.ResponseRepository;
 
 namespace WebApplication1
 {
@@ -39,11 +41,15 @@ namespace WebApplication1
             services.AddTransient<IMedicationIngredientRepository, MedicationIngredientRepository>();
             services.AddTransient<IMedicationRepository, MedicationRepository>();
             services.AddTransient<IRegistratedHospitalRepository, RegistratedHospitalRepository>();
+            services.AddTransient<IObjectionRepository, ObjectionRepository>();
+            services.AddTransient<IResponseRepository, ResponseRepository>();
             services.AddScoped<IMedicationService, MedicationService>();
             services.AddScoped<IPharmacyService, PharmacyService>();
             services.AddScoped<IHospitalRegistrationService, HospitalRegistrationService>();
             services.AddScoped<IMedicationIngredientService, MedicationIngredientService>();
 
+            services.AddScoped<ObjectionService>();
+            services.AddScoped<ResponseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

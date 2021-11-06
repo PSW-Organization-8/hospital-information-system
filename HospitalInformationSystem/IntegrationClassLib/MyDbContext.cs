@@ -23,7 +23,7 @@ namespace IntegrationClassLib
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pharmacy.Model.Pharmacy>().HasData(
-                new Pharmacy.Model.Pharmacy { Id = 1, Name = "Apoteka1", ApiKey="asd123easd", Url="asdsad", Port="1234"}
+                new Pharmacy.Model.Pharmacy { Id = 1, Name = "Apoteka1", ApiKey= "fds15d4fs6", Url="http://localhost", Port= "18013" }
             );
             modelBuilder.Entity<Objection>().HasData(
                 new Objection { Id = 1, PharmacyName = "Apoteka1", TextObjection = "Lose usluge" }

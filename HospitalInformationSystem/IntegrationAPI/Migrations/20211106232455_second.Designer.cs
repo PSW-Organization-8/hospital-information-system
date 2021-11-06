@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace IntegrationAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20211104202009_second")]
+    [Migration("20211106232455_second")]
     partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,32 @@ namespace IntegrationAPI.Migrations
                         });
                 });
 
+            modelBuilder.Entity("IntegrationClassLib.Parthership.Model.Response", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("PharmacyName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TextResponse")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Response");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            PharmacyName = "Apoteka1",
+                            TextResponse = "Nije tacno"
+                        });
+                });
+
             modelBuilder.Entity("IntegrationClassLib.Pharmacy.Model.Pharmacy", b =>
                 {
                     b.Property<long>("Id")
@@ -73,10 +99,10 @@ namespace IntegrationAPI.Migrations
                         new
                         {
                             Id = 1L,
-                            ApiKey = "asd123easd",
+                            ApiKey = "fds15d4fs6",
                             Name = "Apoteka1",
-                            Port = "1234",
-                            Url = "asdsad"
+                            Port = "18013",
+                            Url = "http://localhost"
                         });
                 });
 #pragma warning restore 612, 618

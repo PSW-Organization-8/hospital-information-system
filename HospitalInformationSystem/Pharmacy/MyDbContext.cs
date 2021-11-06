@@ -60,6 +60,13 @@ namespace PharmacyClassLib
                 new Pharmacy(3, "Galen Pharm", "Beograd", "Olge Jovanović", "18a")
                 );
 
+            modelBuilder.Entity<Objection>().HasData(
+                new Objection(1, 0, "Bolnica1", "Ne valja nista")
+                );
+
+            modelBuilder.Entity<Response>().HasData(
+                new Response(1, 0, "Bolnica1", "Kleveta")
+                );
         }
 
         private List<IngredientQuantity> IngredientsQuantity()

@@ -2,14 +2,18 @@
 using IntegrationAPI.Mapper;
 using IntegrationClassLib.Parthership.Model;
 using IntegrationClassLib.Parthership.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using RestSharp;
+using IntegrationClassLib.Pharmacy.Service;
+using IntegrationClassLib.Pharmacy.Model;
 
 namespace IntegrationAPI.Controllers
 {
@@ -19,11 +23,13 @@ namespace IntegrationAPI.Controllers
     {
         private readonly ObjectionService objectionService;
         private readonly ResponseService responseService;
+        private readonly PharmacyService pharmacyService;
 
-        public ObjectionController(ObjectionService objectionService, ResponseService responseService)
+        public ObjectionController(ObjectionService objectionService, ResponseService responseService, PharmacyService pharmacyService)
         {
             this.objectionService = objectionService;
             this.responseService = responseService;
+            this.pharmacyService = pharmacyService;
         }
 
         [HttpGet]
@@ -34,7 +40,14 @@ namespace IntegrationAPI.Controllers
         [HttpPost]
         public Objection Add(ObjectionDTO objectionDTO)
         {
-            return objectionService.Add(ObjectionMapper.ObjectionDTOToObjection(objectionDTO));
+            Objection newObjection = objectionService.Add(ObjectionMapper.ObjectionDTOToObjection(objectionDTO));
+            Pharmacy pharmacy = pharmacyService.GetByName(objectionDTO.PharmacyName);
+            RestClient restClient = new RestClient(pharmacy.Url+":"+pharmacy.Port+"/api/Objection");
+            RestRequest request = new RestRequest();
+            request.AddJsonBody(newObjection);
+            request.AddHeader("ApiKey", pharmacy.ApiKey);
+            restClient.Post(request);
+            return newObjection;
         }
 
     }

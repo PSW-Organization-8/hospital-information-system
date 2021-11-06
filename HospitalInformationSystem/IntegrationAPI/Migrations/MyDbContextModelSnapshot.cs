@@ -97,10 +97,10 @@ namespace IntegrationAPI.Migrations
                         new
                         {
                             Id = 1L,
-                            ApiKey = "asd123easd",
+                            ApiKey = "fds15d4fs6",
                             Name = "Apoteka1",
-                            Port = "1234",
-                            Url = "asdsad"
+                            Port = "18013",
+                            Url = "http://localhost"
                         });
                 });
 #pragma warning restore 612, 618

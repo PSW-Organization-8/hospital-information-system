@@ -22,5 +22,15 @@ namespace IntegrationClassLib.Pharmacy.Service
         {
             return pharmacyRepository.GetAll();
         }
+
+        public Model.Pharmacy GetByName(string name) {
+            List<Model.Pharmacy> pharmacies = pharmacyRepository.GetAll();
+            foreach (Model.Pharmacy pharmacy in pharmacies) {
+                if (pharmacy.Name.Equals(name)) {
+                    return pharmacy;
+                }
+            }
+            return null;
+        }
     }
 }
