@@ -16,7 +16,7 @@ namespace PharmacyClassLib.Model
         public string Name { get; set; }
         public MedicineApprovalStatus Status { get; set; }
         public int Quantity { get; set; }
-        public virtual ICollection<IngredientQuantity> ingradientQuantities { get; set; }
+        public virtual ICollection<IngredientQuantity> IngredientQuantities { get; set; }
                 
         public Medication(long Id, String Name, MedicineApprovalStatus Status, int Quantity, ICollection<IngredientQuantity> ingradientQuantities)
         {
@@ -24,7 +24,7 @@ namespace PharmacyClassLib.Model
             this.Name = Name;
             this.Status = Status;
             this.Quantity = Quantity;
-            this.ingradientQuantities = ingradientQuantities;
+            this.IngredientQuantities = ingradientQuantities;
         }
 
         public Medication(long Id, String Name, MedicineApprovalStatus Status, int Quantity)
@@ -33,7 +33,7 @@ namespace PharmacyClassLib.Model
             this.Name = Name;
             this.Status = Status;
             this.Quantity = Quantity;
-            this.ingradientQuantities = new Collection<IngredientQuantity>();
+            this.IngredientQuantities = new Collection<IngredientQuantity>();
         }
 
     }

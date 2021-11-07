@@ -2,6 +2,7 @@
 using PharmacyClassLib.Model;
 using PharmacyClassLib.Model.Enums;
 using System;
+using System.Collections.Generic;
 
 namespace PharmacyClassLib
 {
@@ -25,15 +26,32 @@ namespace PharmacyClassLib
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            MedicationIngredient ingredient1 = new MedicationIngredient(1, "Vitamin C");
+            MedicationIngredient ingredient2 = new MedicationIngredient(2, "Fosfor");
+            MedicationIngredient ingredient3 = new MedicationIngredient(3, "Kalcijum");
+
+            IngredientQuantity quantity1 = new IngredientQuantity(1, 35.4, 1);
+            IngredientQuantity quantity2 = new IngredientQuantity(2, 48.7, 2);
+
+            List<IngredientQuantity> ingredientList = new List<IngredientQuantity>();
+
+            ingredientList.Add(quantity1);
+            ingredientList.Add(quantity2);
+
             modelBuilder.Entity<MedicationIngredient>().HasData(
-                new MedicationIngredient(1, "Vitamin C"),
-                new MedicationIngredient(2, "Fosfor"),
-                new MedicationIngredient(3, "Kalcijum")
+                ingredient1,
+                ingredient2,
+                ingredient3
+                );
+
+            modelBuilder.Entity<IngredientQuantity>().HasData(
+                quantity1,
+                quantity2
                 );
 
             modelBuilder.Entity<Medication>().HasData(
-                new Medication(1, "Paracetamol", MedicineApprovalStatus.Accepted, 150, null),
-                new Medication(2, "Analgin", MedicineApprovalStatus.Accepted, 50, null)
+                new Medication(1, "Paracetamol", MedicineApprovalStatus.Accepted, 150),
+                new Medication(2, "Analgin", MedicineApprovalStatus.Accepted, 50)
                 );
 
             modelBuilder.Entity<Pharmacy>().HasData(
@@ -43,5 +61,19 @@ namespace PharmacyClassLib
                 );
 
         }
+
+        private List<IngredientQuantity> IngredientsQuantity()
+        {
+            IngredientQuantity quantity1 = new IngredientQuantity(1, 35.4, 1);
+            IngredientQuantity quantity2 = new IngredientQuantity(2, 48.7, 2);
+
+            List<IngredientQuantity> ingredientList = new List<IngredientQuantity>();
+
+            ingredientList.Add(quantity1);
+            ingredientList.Add(quantity2);
+
+            return ingredientList;
+        }
+
     }
 }

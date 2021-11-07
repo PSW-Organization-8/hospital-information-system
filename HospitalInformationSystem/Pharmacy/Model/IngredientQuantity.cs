@@ -13,7 +13,7 @@ namespace PharmacyClassLib.Model
         public int Id { get; set; }
 
         public double Amount { get; set; }
-        public  long MedicationId { get; set; }
+        public long MedicationId { get; set; }
 
         public virtual MedicationIngredient MediactionIngradient { get; set; }
 
