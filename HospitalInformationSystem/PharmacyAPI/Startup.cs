@@ -33,6 +33,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddDbContext<MyDbContext>(options => options.UseNpgsql(x => x.MigrationsAssembly("PharmacyAPI")));
             services.AddTransient<IPharmacyRepository, PharmacyRepository>();
             services.AddTransient<IMedicationIngredientRepository, MedicationIngredientRepository>();
@@ -42,6 +43,7 @@ namespace WebApplication1
             services.AddScoped<IPharmacyService, PharmacyService>();
             services.AddScoped<IHospitalRegistrationService, HospitalRegistrationService>();
             services.AddScoped<IMedicationIngredientService, MedicationIngredientService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
