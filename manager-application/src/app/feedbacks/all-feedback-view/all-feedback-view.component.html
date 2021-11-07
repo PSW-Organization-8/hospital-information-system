@@ -1,5 +1,6 @@
+
 <div>
-    <table border="1">
+    <table class="w3-table-all w3-card-4">
         <thead>
             <th>Id Pacijenta</th>
             <th>Tekst</th>
@@ -14,10 +15,10 @@
                     Not publishable
                 </td>
                 <td *ngIf='!feedback.isApproved && feedback.isPublishable'>
-                    <button (click)="aprroveFeedback(feedback.id)">Approve</button>
+                    <button class="w3-hover-white w3-button w3-round w3-black w3-small" (click)="aprroveFeedback(feedback.id)" >Approve</button>
                 </td>
                 <td *ngIf='feedback.isApproved'>
-                    <button (click)="removeFeedback(feedback.id)">Remove</button>
+                    <button class="w3-hover-white w3-black w3-round w3-button w3-small" (click)="removeFeedback(feedback.id)">Remove</button>
                 </td>
             </tr>
         </tbody>

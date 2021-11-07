@@ -12,3 +12,8 @@
 .is-warning{
   border-color: #EFB0A1 !important;
 }
+
+td{
+  height: 1.5rem;
+  vertical-align: center;
+}
