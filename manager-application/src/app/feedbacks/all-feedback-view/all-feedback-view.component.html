@@ -11,7 +11,7 @@
                 <td>{{feedback.patientId}}</td>
                 <td>{{feedback.content}}</td>
                 <td>{{feedback.date}}</td>
-                <td *ngIf='!feedback.isPublishable'>
+                <td *ngIf='!feedback.isPublishable' class="w3-small">
                     Not publishable
                 </td>
                 <td *ngIf='!feedback.isApproved && feedback.isPublishable'>
