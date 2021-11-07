@@ -2,8 +2,6 @@
 using PharmacyClassLib.Model;
 using PharmacyClassLib.Model.Enums;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace PharmacyClassLib
 {
@@ -27,12 +25,6 @@ namespace PharmacyClassLib
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pharmacy>().HasData(
-                new Pharmacy(1, "Jankovic", "Novi Sad", "Rumenačka", "15"),
-                new Pharmacy(2, "Benu Pharmacy", "Novi Sad", "Bulevar oslobođenja", "135"),
-                new Pharmacy(3, "Galen Pharm", "Beograd", "Olge Jovanović", "18a")
-                );
-
             modelBuilder.Entity<MedicationIngredient>().HasData(
                 new MedicationIngredient(1, "Vitamin C"),
                 new MedicationIngredient(2, "Fosfor"),
@@ -43,6 +35,13 @@ namespace PharmacyClassLib
                 new Medication(1, "Paracetamol", MedicineApprovalStatus.Accepted, 150, null),
                 new Medication(2, "Analgin", MedicineApprovalStatus.Accepted, 50, null)
                 );
+
+            modelBuilder.Entity<Pharmacy>().HasData(
+                new Pharmacy(1, "Jankovic", "Novi Sad", "Rumenačka", "15"),
+                new Pharmacy(2, "Benu Pharmacy", "Novi Sad", "Bulevar oslobođenja", "135"),
+                new Pharmacy(3, "Galen Pharm", "Beograd", "Olge Jovanović", "18a")
+                );
+
         }
     }
 }

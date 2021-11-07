@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PharmacyClassLib.Service.Interface
+namespace PharmacyClassLib.Service
 {
-    interface IMedicationIngredientService
+    public interface IMedicationIngredientService
     {
         List<MedicationIngredient> GetAll();
     }

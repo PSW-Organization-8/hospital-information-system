@@ -17,7 +17,7 @@ namespace PharmacyClassLib.Service
 
         public List<Medication> GetAll()
         {
-            throw new NotImplementedException();
+            return medicationRepository.GetAll();
         }
     }
 }

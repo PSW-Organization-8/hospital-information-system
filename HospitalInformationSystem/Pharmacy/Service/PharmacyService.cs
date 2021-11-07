@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PharmacyClassLib.Service
 {
-    public class PharmacyService:IPharmacyService
+    public class PharmacyService : IPharmacyService
     {
         private readonly IPharmacyRepository pharmacyRepository;
 
