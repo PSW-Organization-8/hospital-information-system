@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { DashboardComponent } from './editor/dashboard.component';
 import { AllFeedbackViewComponent } from './feedbacks/all-feedback-view/all-feedback-view.component';
 import { AllFeedbackViewService } from './feedbacks/all-feedback-view/all-feedback-view.service';
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
 
+import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'feedbackview', component: AllFeedbackViewComponent },
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
   { path: 'header', component: HeaderComponent }
@@ -24,6 +26,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    DashboardComponent,
     AppComponent,
     AllFeedbackViewComponent,
     PharmacyRegistrationComponent,
