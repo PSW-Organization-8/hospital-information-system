@@ -11,6 +11,7 @@ namespace HospitalClassLib
     public class MyDbContext : DbContext
     {
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Patient> Patients { get; set; }
         public MyDbContext()
         {
 

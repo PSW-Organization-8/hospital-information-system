@@ -43,7 +43,7 @@ namespace HospitalClassLib.Schedule.Model
             Content = content;
             IsApproved = isApproved;
             Date = date;
-            PatientId = patient.Id;
+            PatientId = 1;
             Patient = patient;
             IsPublishable = isPublishable;
             IsAnonymous = isAnonymous;

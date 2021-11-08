@@ -13,6 +13,6 @@ import { Router } from '@angular/router';
     constructor(private http: HttpClient, private router:Router) {}
 
     public getPatientFromServer(patientId: string): any {
-        return this.http.get<any>(this._url + 'patient/' + patientId);
+        return this.http.get<any>(this._url + 'patient/' + "1");
       }
   }

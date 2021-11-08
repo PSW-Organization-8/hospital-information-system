@@ -9,8 +9,8 @@
          <div class="w3-container" *ngFor="let f of approvedFeedback">
         
         <h3 class="w3-center"> "{{f.content}}" </h3>
-        <h3 class="w3-right" style="text-align: center; background-color: #5688C7" *ngIf="f.isAnonymous">Anonymous</h3>
-        <h3 class="w3-right" style="text-align: center; background-color: #5688C7" *ngIf="f.isAnonymous==false">{{f.id}} {{f.id}}</h3>
+        <h3 class="w3-right" style="text-align: center; background-color: #5688C7" *ngIf="f.isAnonymous">- Anonymous</h3>
+        <h3 class="w3-right" style="text-align: center; background-color: #5688C7" *ngIf="f.isAnonymous==false">- Pera Peric</h3>
       </div>
   
       <div class="w3-third w3-center">
