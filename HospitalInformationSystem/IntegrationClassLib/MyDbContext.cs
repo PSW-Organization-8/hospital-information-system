@@ -18,7 +18,7 @@ namespace IntegrationClassLib
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            String connectionString = "Server=localhost; Port =5432; Database =Integration; User Id = postgres; Password =saska;";
+            String connectionString = "Server=localhost; Port =5432; Database =Integration; User Id = postgres; Password =root;";
             optionsBuilder.UseNpgsql(connectionString);
         }
 

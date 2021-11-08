@@ -191,6 +191,14 @@ namespace PharmacyAPI.Migrations
                     b.HasKey("Name");
 
                     b.ToTable("RegistratedHospitals");
+
+                    b.HasData(
+                        new
+                        {
+                            Name = "Bolnica1",
+                            ApiKey = "fds15d4fs6",
+                            Url = "http:localhost:7313"
+                        });
                 });
 
             modelBuilder.Entity("PharmacyClassLib.Model.IngredientQuantity", b =>

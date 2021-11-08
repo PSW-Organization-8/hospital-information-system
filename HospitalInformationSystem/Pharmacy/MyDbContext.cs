@@ -19,7 +19,7 @@ namespace PharmacyClassLib
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            String connectionString = "Server=localhost; Port =5432; Database =Pharmacy; User Id = postgres; Password =saska;";
+            String connectionString = "Server=localhost; Port =5432; Database =Pharmacy; User Id = postgres; Password =root;";
             optionsBuilder.UseNpgsql(connectionString);
         }
 
@@ -37,6 +37,9 @@ namespace PharmacyClassLib
 
             modelBuilder.Entity<Response>().HasData(
                 new Response(1, 0, "Bolnica1", "Kleveta")
+                );
+            modelBuilder.Entity<RegistratedHospital>().HasData(
+                new RegistratedHospital("Bolnica1", "http:localhost:7313", "fds15d4fs6")
                 );
         }
     }
