@@ -14,7 +14,7 @@ namespace PharmacyClassLib.Repository.IngredientQuantityRepository
 
         protected override long GetId(IngredientQuantity entity)
         {
-            throw new NotImplementedException();
+            return entity.Id;
         }
     }
 }
