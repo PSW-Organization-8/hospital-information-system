@@ -14,7 +14,7 @@ using System;
 
 namespace HospitalClassLib.Schedule.Model
 {
-   public class Appointment 
+    public class Appointment 
    {
         
 

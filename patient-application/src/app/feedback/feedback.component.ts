@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { RandomNumberGeneratorService } from '../feedback.service';
+import { RandomNumberGeneratorService } from '../services/feedback.service';
+import { PatientService } from '../services/patient.serivce';
 
 @Component({
   selector: 'app-feedback',
@@ -14,6 +15,8 @@ export class FeedbackComponent implements OnInit {
   anonymous: boolean = false;
   publishable: boolean = true;
   isContentEmpty: boolean = true;
+  patientId: number = 1;
+  patient: any;
 
   constructor(private _feedbackService:RandomNumberGeneratorService) { }
 
@@ -22,7 +25,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   getFeedback(): void{
-    this._feedbackService.getFeedbackFromServer().subscribe(f => this.feedback = f);
+    this._feedbackService.getFeedbackFromServer().subscribe(f => this.feedback = f, this.patientId = this.feedback.patientId);
   }
 
   sendFeedback(): void{

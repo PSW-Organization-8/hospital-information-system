@@ -1,4 +1,5 @@
 ﻿
+using HospitalClassLib.Schedule.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;

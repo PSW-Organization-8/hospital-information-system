@@ -16,9 +16,9 @@ namespace HospitalClassLib.SharedModel
         public string Password { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Address Address { get; set; }
+        //public Address Address { get; set; }
         
-        public LoggedUser(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address)
+        public LoggedUser(string name, string lastName, string jmbg, string username, string password, string email, string phone /*Address address*/)
         {
             Name = name;
             LastName = lastName;
@@ -27,7 +27,7 @@ namespace HospitalClassLib.SharedModel
             Password = password;
             Email = email;
             Phone = phone;
-            Address = address;
+            //Address = address;
             
         }
 
@@ -49,7 +49,7 @@ namespace HospitalClassLib.SharedModel
             get
             {
                 //return "Novi Sad, Despota Stefana 7";
-                return this.Address.Street + " " + this.Address.Number + ", " + this.Address.City.Name;
+                return null;/*this.Address.Street + " " + this.Address.Number + ", " + this.Address.City.Name;*/
             }
         }
 
@@ -57,7 +57,7 @@ namespace HospitalClassLib.SharedModel
         {
             get
             {
-                return this.Address.Street + " " + this.Address.Number;
+                return null;//this.Address.Street + " " + this.Address.Number;
                 //return "Despota Stefana 7";
             }
         }

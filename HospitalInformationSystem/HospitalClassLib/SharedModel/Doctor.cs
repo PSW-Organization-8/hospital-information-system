@@ -26,7 +26,7 @@ namespace HospitalClassLib.SharedModel
 
         public Doctor(string name, string lastName, string jmbg, string username, string password, string email, 
             string phone, Address address, Specialization specialization, int vacationDays) 
-            : base(name, lastName, jmbg, username, password, email, phone, address)
+            : base(name, lastName, jmbg, username, password, email, phone/*, address*/)
         {
             VacationDays = vacationDays;
             DoctorSpecialization = specialization;
@@ -43,7 +43,7 @@ namespace HospitalClassLib.SharedModel
             Password = doctor.Password;
             Email = doctor.Email;
             Phone = doctor.Phone;
-            Address = doctor.Address;
+            //Address = doctor.Address;
             
             VacationDays = doctor.VacationDays;
             DoctorSpecialization = doctor.DoctorSpecialization;

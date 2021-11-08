@@ -1,7 +1,6 @@
 ﻿
 using HospitalClassLib.MedicalRecords.Repository.SurgeryReportRepo;
 using HospitalClassLib.Schedule.Model;
-using HospitalClassLib.SharedModel;
 using SIMS.Repositories;
 using System;
 using System.Collections.Generic;

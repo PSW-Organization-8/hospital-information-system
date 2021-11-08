@@ -1,5 +1,6 @@
 using HospitalClassLib;
 using HospitalClassLib.Schedule.Repository.FeedbackRepository;
+using HospitalClassLib.Schedule.Repository.PatientRepository;
 using HospitalClassLib.Schedule.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,10 +33,11 @@ namespace HospitalAPI
 
             services.AddControllers();
             services.AddDbContext<MyDbContext>(options => options.UseNpgsql(x => x.MigrationsAssembly("HospitalAPI")));
+            services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddScoped<PatientRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddScoped<FeedbackService>();
             services.AddScoped<FeedbackRepository>();
-
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

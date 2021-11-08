@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { RandomNumberGeneratorService } from './feedback.service';
+import { RandomNumberGeneratorService } from './services/feedback.service';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';

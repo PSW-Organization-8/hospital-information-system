@@ -11,16 +11,6 @@ namespace HospitalClassLib.Schedule.Service
 {
     public class FeedbackService
     {
-        private static FeedbackService instance = null;
-        public static FeedbackService GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new FeedbackService();
-            }
-            return instance;
-        }
-
         public FeedbackService() { }
 
         private readonly IFeedbackRepository feedbackRepository;

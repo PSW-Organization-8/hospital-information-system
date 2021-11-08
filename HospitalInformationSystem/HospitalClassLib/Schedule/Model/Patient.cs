@@ -1,36 +1,54 @@
-﻿using HospitalClassLib.Schedule.Model;
+﻿using HospitalClassLib.SharedModel;
 using HospitalClassLib.SharedModel.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HospitalClassLib.SharedModel
+namespace HospitalClassLib.Schedule.Model
 {
 
     public class Patient : LoggedUser
     {
-        public SexType PatientGender { get; set; }
-        public BloodType BloodType { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        //public SexType PatientGender { get; set; }
+        //public BloodType BloodType { get; set; }
         public bool IsBanned { get; set; }
         public string Lbo { get; set; }
         public bool Guest { get; set; }
-        public List<Component> Allergens { get; set; }
+        //public List<Component> Allergens { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public List<string> HronicalDiseases { get; set; }
-        public Doctor ChosenDoctor { get; set; }
+        //public List<string> HronicalDiseases { get; set; }
+        //public Doctor ChosenDoctor { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
 
+        /*public Patient() { }
 
-        public Patient(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address, String lbo, Boolean guest, List<Component> allergens) : base(name, lastName, jmbg, username, password, email, phone, address)
+        public Patient(int id, string name, string lastName, string jmbg, string username, string password, DateTime dateOfBirth)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.LastName = lastName;
+            this.Jmbg = jmbg;
+            this.Username = username;
+            this.Password = password;
+            this.DateOfBirth = dateOfBirth;
+        }*/
+
+        /*public Patient(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address, string lbo, bool guest, List<Component> allergens) : base(name, lastName, jmbg, username, password, email, phone, address)
         {
             Lbo = lbo;
             Guest = guest;
             Allergens = allergens;
             IsBanned = false;
-        }
+        }*/
 
-        public Patient(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address, String lbo, Boolean guest, List<Component> allergens, DateTime dateOfBirth, BloodType bloodType, SexType gender, List<string> hronicalDiseases) : base(name, lastName, jmbg, username, password, email, phone, address)
+        /*public Patient(string name, string lastName, string jmbg, string username, string password, string email, string phone, Address address, string lbo, bool guest, List<Component> allergens, DateTime dateOfBirth, BloodType bloodType, SexType gender, List<string> hronicalDiseases) : base(name, lastName, jmbg, username, password, email, phone, address)
         {
             Lbo = lbo;
             Guest = guest;
@@ -40,9 +58,9 @@ namespace HospitalClassLib.SharedModel
             PatientGender = gender;
             HronicalDiseases = hronicalDiseases;
             IsBanned = false;
-        }
+        }*/
 
-        public Patient(Patient patient)
+        /*public Patient(Patient patient)
         {
             Name = patient.Name;
             LastName = patient.LastName;
@@ -93,19 +111,19 @@ namespace HospitalClassLib.SharedModel
             Guest = p.Guest;
         }
 
-        
+
 
         public bool Unavailable(Appointment appointment)
         {
-            return appointment.Patient.Jmbg == this.Jmbg;
+            return appointment.Patient.Jmbg == Jmbg;
         }
 
-        public String GetDateOfBirthString()
+        public string GetDateOfBirthString()
         {
             return DateOfBirth.ToString("dd.MM.yyyy.");
         }
 
-        public String GetGenderString()
+        public string GetGenderString()
         {
             if (PatientGender == SexType.Male)
                 return "Muško";
@@ -113,7 +131,7 @@ namespace HospitalClassLib.SharedModel
                 return "Žensko";
         }
 
-        public String GetBloodTypeString()
+        public string GetBloodTypeString()
         {
             if (BloodType == BloodType.ABn)
                 return "AB-";
@@ -156,6 +174,6 @@ namespace HospitalClassLib.SharedModel
             foreach (string a in HronicalDiseases)
                 hronBolestiString += a + ", ";
             return hronBolestiString.Remove(hronBolestiString.Length - 2);
-        }
+        }*/
     }
 }

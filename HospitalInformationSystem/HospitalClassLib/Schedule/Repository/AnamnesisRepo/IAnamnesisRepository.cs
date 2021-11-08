@@ -1,6 +1,6 @@
 ﻿
 using HospitalClassLib.HospitalClassLib.Schedule.Model;
-using HospitalClassLib.SharedModel;
+using HospitalClassLib.Schedule.Model;
 using SIMS.Repositories;
 using System;
 using System.Collections.Generic;

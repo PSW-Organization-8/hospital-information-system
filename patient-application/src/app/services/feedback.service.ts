@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { serverPort } from './app.consts';
+import { serverPort } from '../app.consts';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class RandomNumberGeneratorService {
       IsAnonymous: anonymous,
       IsPublishable: publishable,
       IsApproved: false,
-      PatientId: '1',
+      PatientId: 1,
     };
     this.http.post<any>(this._url + 'feedback', feedback).subscribe( () => {
       this.router.navigate(['']);
