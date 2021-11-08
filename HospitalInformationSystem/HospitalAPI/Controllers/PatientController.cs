@@ -19,11 +19,5 @@ namespace HospitalAPI.Controllers
             this.patientService = patientService;
             this.patientRepository = patientRepository;
         }
-
-        [HttpGet("{id?}")]
-        public IActionResult GetPatient(int id)
-        {
-            return Ok(patientService.Get(id));
-        }
     }
 }

@@ -28,7 +28,6 @@ namespace HospitalClassLib
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //new Patient(1, "Pera", "Peric", "123456789", "pera", "pera", DateTime.Now);
             modelBuilder.Entity<Patient>().HasData(
                 new Patient { Id = 1, Name = "Pera", LastName = "Peric", Jmbg = "123456789", Username = "pera", Password = "pera", DateOfBirth = DateTime.Now, Feedbacks = new List<Feedback>() }
                 );
