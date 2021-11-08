@@ -13,16 +13,16 @@ namespace IntegrationClassLib.Parthership.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
-        public string PharmacyName { get; set; }
+        public string ObjectionId { get; set; }
         public string TextResponse { get; set; }
 
         public Response() { }
 
-        public Response(string text, string name)
+        public Response(string text, string objectionId)
         {
 
             TextResponse = text;
-            PharmacyName = name;
+            ObjectionId = objectionId;
 
         }
     }

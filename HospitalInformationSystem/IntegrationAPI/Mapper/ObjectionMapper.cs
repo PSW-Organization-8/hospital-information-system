@@ -22,7 +22,7 @@ namespace IntegrationAPI.Mapper
             foreach (Objection o in objections) {
                 ObjectionResponseDTO objectionResponse = new ObjectionResponseDTO(o.TextObjection, o.PharmacyName, "no response");
                 foreach (Response r in responses) {
-                    if (r.PharmacyName.Equals(o.PharmacyName)) {
+                    if (r.ObjectionId.Equals(o.Id.ToString())) {
                         objectionResponse.TextResponse = r.TextResponse;
                         break;
                     }

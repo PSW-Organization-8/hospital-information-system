@@ -31,7 +31,7 @@ namespace IntegrationClassLib
                 new Objection { Id = 1, PharmacyName = "Apoteka1", TextObjection = "Lose usluge" }
             );
             modelBuilder.Entity<Response>().HasData(
-               new Response { Id = 1, PharmacyName = "Apoteka1", TextResponse = "Nije tacno" }
+               new Response { Id = 1, ObjectionId = "1", TextResponse = "Nije tacno" }
            );
         }
     }
