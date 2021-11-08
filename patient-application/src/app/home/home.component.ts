@@ -15,14 +15,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getApprovedFeedback();
-    this.getPatientById();
   }
 
   getApprovedFeedback(): void{
     this._feedbackService.getApprovedFeedbackFromServer().subscribe(f => this.approvedFeedback = f);
-  }
-
-  getPatientById(): void{
-    this._patientService.getPatientFromServer("1").subscribe((p: any) => this.patient = p);
   }
 }

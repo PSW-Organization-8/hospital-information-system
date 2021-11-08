@@ -15,8 +15,6 @@ export class FeedbackComponent implements OnInit {
   anonymous: boolean = false;
   publishable: boolean = true;
   isContentEmpty: boolean = true;
-  patientId: number = 1;
-  patient: any;
 
   constructor(private _feedbackService:RandomNumberGeneratorService) { }
 
@@ -25,7 +23,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   getFeedback(): void{
-    this._feedbackService.getFeedbackFromServer().subscribe(f => this.feedback = f, this.patientId = this.feedback.patientId);
+    this._feedbackService.getFeedbackFromServer().subscribe(f => this.feedback = f);
   }
 
   sendFeedback(): void{
