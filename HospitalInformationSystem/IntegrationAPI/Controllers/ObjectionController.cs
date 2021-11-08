@@ -42,6 +42,7 @@ namespace IntegrationAPI.Controllers
         {
             Objection newObjection = objectionService.Add(ObjectionMapper.ObjectionDTOToObjection(objectionDTO));
             Pharmacy pharmacy = pharmacyService.GetByName(objectionDTO.PharmacyName);
+
             RestClient restClient = new RestClient(pharmacy.Url+":"+pharmacy.Port+"/api/Objection");
             RestRequest request = new RestRequest();
             request.AddJsonBody(newObjection);

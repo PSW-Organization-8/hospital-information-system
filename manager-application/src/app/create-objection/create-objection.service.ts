@@ -11,11 +11,15 @@ export class CreateObjectionService {
   private _url = integrationServerPort;
   constructor(private http: HttpClient) { }
 
-public sendObjectionToServer(pharmacyName: string,textObjection:string): void {
+  public getPharmacyFromServer(): Observable<any> {
+    return this.http.get<any>(this._url + 'Pharmacy');
+  }
+  
+public sendObjectionToServer(pharmacyName: string, textObjection:string){
   let objection = {
     PharmacyName: pharmacyName,
     TextObjection: textObjection
   };
-  this.http.post<any>(this._url + 'objection', objection).subscribe();
- }
+  return this.http.post<any>(this._url + 'objection', objection);
+ };
 }

@@ -5,7 +5,14 @@
         <label for="fname">Pharmacy Name</label>
       </div>
       <div class="col-75">
-        <input type="text"  name="PharmacyName" placeholder="Pharmacy name.."  [(ngModel)]="pharmacyName" required>
+        <select [(ngModel)]="pharmacyName" name="something">
+          <option value="">
+           ----Select pharmacy----
+          </option>
+          <option *ngFor="let n of pharmacies">
+            {{n.name}}
+          </option>
+        </select>
       </div>
     </div>
     <div class="row">

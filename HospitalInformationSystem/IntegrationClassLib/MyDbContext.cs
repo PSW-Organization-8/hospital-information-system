@@ -6,7 +6,8 @@ namespace IntegrationClassLib
 {
     public class MyDbContext : DbContext
     {
-        public DbSet<Pharmacy.Model.Pharmacy> Pharmacies { get; set; }
+       
+        public  DbSet<Pharmacy.Model.Pharmacy> Pharmacies { get; set; }
         public MyDbContext()
         {
 
@@ -16,7 +17,8 @@ namespace IntegrationClassLib
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            String connectionString = "Server=localhost; Port =5432; Database =Integration; User Id = postgres; Password =root;";
+
+            String connectionString = "Server=localhost; Port =5432; Database =Integration; User Id = postgres; Password =saska;";
             optionsBuilder.UseNpgsql(connectionString);
         }
 
